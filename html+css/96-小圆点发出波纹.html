@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .city {
+            position: absolute;
+            top: 220px;
+            right: 800px;
+            /* background-color: #fff; */
+        }
+
+        .dotted {
+            width: 12px;
+            height: 12px;
+            background-color: violet;
+            border-radius: 50%;
+        }
+
+        .city div[class^=pulse] {
+            position: absolute;
+            /* 水平垂直居中 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            box-shadow: 0 0 12px violet;
+            animation: pulse 1s linear infinite;
+        }
+
+        .pulse2 {
+            animation-delay: 0.4s !important;
+
+
+        }
+
+        .pulse3 {
+            animation-delay: 0.8s !important;
+        }
+
+        @keyframes pulse {
+            0% {}
+
+            70% {
+                /* 用scale会放大阴影 */
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="city">
+        <div class="dotted"></div>
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+    </div>
+
+</body>
+
+</html>

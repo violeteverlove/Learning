@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 用3000客户端发送请求给3000服务器端再让其发送请求给3001服务器端
+    服务器端发送请求不受同源政策的影响 -->
+</head>
+
+<body>
+    <button id="btn">点我发送请求</button>
+    <script src="js/ajax.js"></script>
+    <script>
+        var btn = document.querySelector('#btn');
+        btn.addEventListener('click', function () {
+            ajax({
+                type: 'get',
+                url: 'http://localhost:3000/server1',
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>

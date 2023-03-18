@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 设置元素的属性 v-bind:属性名=表达式 -->
+    <style>
+        img {
+            width: 400px;
+        }
+
+        .active {
+            border: 1px solid violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgUrl" alt="">
+        <!-- 如果为真，就加类名 -->
+        <img :src="imgUrl" alt="" :class="isActive?'active':''">
+        <!-- 省略写法 -->
+        <img :src="imgUrl" alt="" :class="{active:isActive}">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgUrl: '../html+css/image/image.jpg',
+                isActive: true
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            /* 清楚lis前面的样式 */
+            list-style: none;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+            /* auto居中 */
+            margin: 100px auto;
+        }
+
+        .container h3 {
+            height: 32px;
+            /* 文字垂直居中 */
+            line-height: 32px;
+            font-weight: normal;
+            font-size: 20px;
+            border-bottom: gray dashed 1px;
+            padding-left: 20px;
+
+        }
+
+        .container ul li a {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+
+        }
+
+        .container ul li a:hover {
+            text-decoration-line: underline;
+        }
+
+        .container ul li {
+            height: 28px;
+            padding-left: 20px;
+        }
+
+        /* 给li设置mrgintop不合适 应给ul */
+
+        .container ul {
+            margin-top: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>新闻快报</h3>
+        <ul>
+            <li><a href="#">【热门】热搜新闻</a></li>
+            <li><a href="#">【热门】热搜新闻</a></li>
+            <li><a href="#">【热门】热搜新闻</a></li>
+            <li><a href="#">【热门】热搜新闻</a></li>
+            <li><a href="#">【热门】热搜新闻</a></li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>

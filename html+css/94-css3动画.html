@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /* 通过设置多个节点来精确控制一个或多个动画
+    常用来实现复杂的动画效果
+    相比于过渡，动画可以实现更多变化，更多控制，连续播放等效果 */
+    制作顺序：先定义动画，在调用动画
+-->
+    <style>
+        /* 页面打开，一个盒子从左边走到右边 */
+        @keyframes animate {
+            0% {
+                transform: translateX(0);
+                background-color: skyblue;
+            }
+
+            100% {
+                transform: translateX(1000px);
+                background-color: violet;
+            }
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 调用动画 animation-name:动画名称 */
+            animation-name: animate;
+            /* 持续时间  animation-duration*/
+            animation-duration: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+</body>
+
+</html>

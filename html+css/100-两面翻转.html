@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 翻转父盒子 -->
+    <style>
+        body {
+            perspective: 500px;
+        }
+
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            transition: all .4s;
+            /* 让背面的盒子保留3d效果 */
+            transform-style: preserve-3d;
+        }
+
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .front {
+            background-color: skyblue;
+            z-index: 1;
+        }
+
+        .back {
+            background-color: violet;
+            /* 翻转背面贴到后面  背靠背旋转 */
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front"></div>
+        <div class="back"></div>
+    </div>
+</body>
+
+</html>

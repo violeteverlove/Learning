@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transform:translate(-50%,-50%)实现水平垂直居中 */
+        /* translate()函数是css3的新特性.在不知道自身宽高的情况下，可以利用它来进行水平垂直居中.。
+
+        当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+
+         translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。 */
+
+
+        /* 模态框的制作 */
+        .mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 100;
+
+        }
+
+
+        .login {
+            width: 512px;
+            height: 280px;
+            padding: 10px;
+            background: #cfcfcf;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 5px;
+            z-index: 120;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="login">
+        <div id="title" style="background-color:blue; text-align: center; height: 50px;">登录会员</div>
+    </div>
+    <div class="mask">
+    </div>
+
+    <script>
+        //拖拽原理
+        //鼠标按下并且移动，然后松开鼠标
+        //拖拽过程鼠标移动获得最新的值赋值给模态框的left值和top值
+        //开始先获得鼠标在盒子哪个位置点击的坐标，因为offsetleft是动态变化的
+        //然后再用移动过程中鼠标在页面的坐标减去在盒子的坐标就是left 和top值
+
+        var title = document.querySelector('#title');
+        var login = document.querySelector('.login');
+        title.addEventListener('mousedown', function (e) {
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+            //移动事件写到按下事件里面
+            //在页面的任何位置可以拖动框 事件源是document
+            document.addEventListener('mousemove', move);
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+
+            }
+            //弹起，让移动事件停止 将函数封装 清除事件内部不能写函数
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            })
+
+
+        })
+    </script>
+
+</body>
+
+</html>

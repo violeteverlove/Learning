@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 在项目中，服务器端绝大多数情况下会以JSON对象作为响应数据的格式
+    当客户端拿到响应数据时，要将JSON数据和HTML字符串进行拼接，再将
+    结果显示在页面中 
+
+       在http请求与响应的过程中，无论是请求参数还是响应内容，如果是
+       对象类型，最终会被转换成对象字符串进行传输-->
+
+    <script>
+        //创建ajax对象
+        var xhr = new XMLHttpRequest();
+        //向哪发送请求，已什么方式请求
+        xhr.open('get', 'http://localhost:3000/responseData');
+        //发送请求
+        xhr.send();
+        //获取服务器响应到客户端的数据
+        xhr.onload = function () {
+            // 返回的数据是字符串类型
+            console.log(typeof (xhr.responseText));
+            //将json字符串转换为json对象 JSON.parse()
+            var responseText = JSON.parse(xhr.responseText);
+            console.log(responseText);
+            var str = '<h2>' + responseText.name + '</h2>';
+            document.body.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

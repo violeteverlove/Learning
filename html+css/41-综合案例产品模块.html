@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .box {
+            position: relative;
+            width: 298px;
+            height: 415px;
+            background-color: #fff;
+            /* 水平居中对齐 */
+            margin: 100px auto;
+        }
+
+        .box>img {
+            /* 继承父亲宽度 */
+            width: 100%;
+        }
+
+        /* p是块元素 */
+        /* 未定义宽度padding不会撑开盒子 */
+        .review {
+            font-size: 14px;
+            height: 45px;
+            padding: 0 27px;
+            margin-top: 20px;
+
+        }
+
+        .next {
+            font-size: 14px;
+            height: 30px;
+            padding: 0 27px;
+            margin-top: 10px;
+            color: cornflowerblue;
+        }
+    /* 子绝父相 */
+        .box .panel {
+            position: absolute;
+            top: 0;
+            right: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="panel"><img src="image/image.jpg" width="50px" alt=""></span>
+        <img src="image/image.jpg" alt="">
+        <p class="review">你将不是道具而是人如其名的人</p>
+        <div class="next">ヴァイオレット・エヴァーガーデン</div>
+
+
+    </div>
+
+</body>
+
+</html>

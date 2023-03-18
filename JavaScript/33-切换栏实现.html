@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab {
+            width: 600px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: blueviolet;
+        }
+
+        .tab_list {
+            height: 60px;
+            background-color: cornsilk;
+        }
+
+
+        .tab_list ul li {
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 20px;
+
+        }
+
+        .current {
+            background-color: darkorange;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品内容</div>
+            <div class="item">规格模块</div>
+            <div class="item">保障模块</div>
+            <div class="item">商品评价模块</div>
+            <div class="item">手机社区模块</div>
+        </div>
+    </div>
+    <script>
+        //选项模块
+        var tab_list = document.querySelector('.tab_list');
+        var lis = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for (var i = 0; i < lis.length; i++) {
+            //给小li设定索引号
+            //h5自定义属性规定以data开头命名规范
+            lis[i].setAttribute('data-index', i);
+            lis[i].onclick = function () {
+                //所有人li清除class这个类
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                //留下我自己
+                this.className = 'current';
+                //显示内容模块
+                //获取点击选项对应的索引号
+                var index = this.getAttribute('data-index');
+                console.log(index);
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+
+        //内容模块
+    </script>
+
+</body>
+
+</html>

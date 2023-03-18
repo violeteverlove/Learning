@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--1.模拟html表单，相当于将html表单映射成表单对象
+    自动将表单对象中的数据拼接成请求参数的格式
+        2.异步上传二进制文件-->
+
+    <!-- 创建普通的html表单 提交方式在ajax中写，只能是post -->
+    <form id="form">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="file" name="" id="file">
+        <input type="button" name="" id="btn" value="提交">
+    </form>
+    <script>
+        var btn = document.querySelector('#btn');
+        var form = document.querySelector('#form');
+        btn.addEventListener('click', function () {
+            //将普通的html表单转换为表单对象
+            var formData = new FormData(form);
+            // 获取表单对象的值 get('key')
+            console.log(formData.get('username'));
+            //设置表单对象中的值  应用在二次处理
+            formData.set('password', '123');
+            formData.append('password', '456');
+            //删除表单对象中的值  场景，输入两次密码 上传一个数据
+            formData.delete('username');
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            //对ajax对象进行配置
+            xhr.open('post','http://localhost:3000/formData');
+            //  发送ajax请求
+            xhr.send(formData);
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.responseText);
+                }
+            }
+
+            var f = new FormData();//创建一个空的表单对象
+            //追加新的属性值  如果属性名有且有值，不会覆盖原来的值
+            f.append('sex', '男');
+            console.log(f.get('sex'));
+
+        })
+    </script>
+</body>
+
+</html>

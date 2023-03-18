@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>ss</button>
+
+    <script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            //ie缓存解决问题 地址加?t= 外面加一个返回不同值的函数
+            xhr.open('get', 'http://localhost:3000/cache?t=' + Date.now());
+            xhr.send();
+            xhr.onreadystatechange = function () {
+
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        console.log(xhr.responseText);
+                    }
+                }
+                //断网无法触发onload事件，会触发onerror事件
+                xhr.onerror = function () {
+                    alert('网络中断')
+                }
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

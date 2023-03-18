@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            /* 图像模糊处理 */
+            filter: blur(3px);
+        }
+
+        img:hover {
+            filter: blur(0);
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        .son {
+            /* 永远比父盒子小30像素 */
+            /* 运算符两个留空格 不然不会生效 */
+            width: calc(100% - 30px);
+            height: 40px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="image/image.jpg" alt="">
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+</body>
+
+</html>

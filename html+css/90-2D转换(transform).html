@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 优点：不会影响其他元素的位置  常用于hover让默写元素转换*/
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* transform-origin: center; */
+            /* transition: 变化属性 时间 运动曲线 几时开始; */
+            /* 谁过渡给谁加 */
+            /* transition: background-color 0.7s, transform 0.7s; */
+            transition: all .7s;
+            /* 多个属性用逗号相隔 */
+        }
+
+        div:hover {
+            /* transform: translate(100px, 0); */
+            /* 选择360度 */
+            /* 有执行顺序  多属性 先写位移*/
+            transform: translate(500px, 0) rotate(360deg) scale(0.5, 0.5);
+            /* width: 400px; */
+            background-color: violet;
+        }
+
+        /* //translate参数里面为% 移动距离是自身的宽度和高度对比的 */
+        /* 对行内元素无效 */
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+
+
+</body>
+
+</html>

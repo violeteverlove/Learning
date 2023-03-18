@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 500px;
+            background-color: #d3a5a5;
+            margin: 100px auto;
+        }
+
+        .box ul {
+            margin-left: 40px;
+        }
+
+        .box ul li {
+            height: 40px;
+            line-height: 40px;
+            padding-top: 30px;
+            font-size: 21px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>赛事名称:<input type="text" placeholder=""></li>
+            <li>预约时间:<input type="text" placeholder="" list="one">
+                <datalist id="one">
+                    <option value="7:00~9:00"></option>
+                    <option value="9:00~11:00"></option>
+                    <option value="2:00~4:00"></option>
+                    <option value="4:00~6:00"></option>
+                    <option value="7:00~9:00"></option>
+                </datalist>
+            </li>
+            <li>赛事描述:<input type="text" placeholder=""></li>
+            <li></li>
+            <li></li>
+            <li style="display: none;">ID:<input type="text"> </li>
+            <li style="width: 200px; padding-left: 50px;">
+                <input type="submit" value="确定"
+                    style="border-radius:6px; width: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="返回" onclick="history.go(-1)" style="border-radius:6px; width: 50px;">
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

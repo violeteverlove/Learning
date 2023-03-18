@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Vue中的时间修饰符：
+         1.prevent：阻止默认事件（常用）
+         2.stop：阻止事件冒泡(常用)
+         3.once：事件只触发一次(常用)
+         4.capature：使用事件的捕获模式
+         5.self：只有event.target是当前操作的元素才能触发事件
+         6.passive:事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+    <div id="school">
+        <h2>{{name}}</h2>
+        <button @click="show">点击提示信息</button>
+        <!-- 阻止默认事件流触发 -->
+        <a href="https://www.bilibili.com" @click.prevent="acp">123123</a>
+        <!-- 阻止冒泡 -->
+        <div @click="acp2">
+            <button @click.stop="acp2">点击提示信息</button>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#school',
+            data: {
+                name: '点击',
+            },
+            methods: {
+                show: function () {
+                    alert('提示信息')
+                },
+                acp: function () {
+                    alert('提示信息222')
+                },
+                acp2: function () {
+                    alert('提示信息222')
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

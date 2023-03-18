@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--1.将不同源的服务器端请求地址卸载script标签中的src属性中
+        2.服务器端响应数据必须是一个函数的调用，真正发给客户端的数据
+    需要作为函数调用的参数
+        3.在客户端全局作用域下定义函数fn  function fn（data）{}
+        4，在fn函数内部对服务器端返回的数据进行处理-->
+</head>
+
+<body>
+    <button id="btn">点我发送请求</button>
+    <script>
+        function fn(data) {
+            console.log(data);
+        }
+    </script>
+    <!-- 1.将不同源的服务器端请求地址卸载script标签中的src属性中 -->
+    <!-- <script src="http://localhost:3001/better?callback=fn"></script> -->
+    <script>
+        var btn = document.querySelector('#btn');
+        // 动态发送请求
+        btn.addEventListener('click', function () {
+            //创建script标签
+            var script = document.createElement('script');
+            //设置src属性 把函数名称传递到服务器端
+            script.src = 'http://localhost:3001/better?callback=fn';
+            //将标签追加在页面中
+            document.body.appendChild(script);
+            //当script标签加载完调用onload事件将其删除
+            script.onload = function () {
+                document.body.removeChild(script);
+            }
+        })
+    </script>
+</body>
+
+</html>

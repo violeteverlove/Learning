@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 它是浏览器提供的一套方法，可以实现页面无刷新更新数据 -->
+    <!-- ，提高用户浏览网站应用的体验 -->
+    <!-- 应用场景： 
+    1.页面上拉加载更多数据
+    2.列表数据不刷新分页
+    3.表单项离开焦点数据验证
+    4.搜索框提示文字下拉列表-->
+
+    <!-- Ajax技术需要运行在网站环境中才能生效
+    这里使用Node创建的服务器作为网站服务器 -->
+
+    <!-- 优点：可以无需刷新页面与服务器进行通信 -->
+    <!-- 允许你根据用户时间来更新部分页面内容 -->
+
+    <!-- 缺点
+        没有浏览历史，不能回退
+    存在跨域问题（同源）
+    SEO不友好 -->
+
+
+    <!-- 实现步骤
+    创建Ajax对象  
+    var xhr = new XMLHttpRequest()；
+     告诉Ajax请求地址以及请求方式
+    xhr.open('get','地址');
+    发送请求
+    xhr.send();
+      事件绑定： 获取服务器端与客户端的响应数据
+    xhr.onload =function(){
+        console.log(xhr.responseText);
+    }
+ -->
+
+
+</body>
+
+</html>

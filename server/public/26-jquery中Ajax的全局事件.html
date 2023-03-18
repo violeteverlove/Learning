@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="nprogress/nprogress.css">
+<script src="nprogress/nprogress.js"></script>
+
+<body>
+    <button id="btn">发送请求</button>
+    <!-- 可以利用beforesend方法，但请求过多的时候代码重复率过多，所以需要使用全局事件
+       .ajaxStart() 在请求开始时触发
+       .ajaxComplete() 在请求完成时触发
+       全局事件一定要绑定到document身上   -->
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).on('ajaxStart', function () {
+            NProgress.start();	//显示进度条
+        })
+        $(document).on('ajaxComplete', function () {
+            NProgress.done(); //完成进度条
+        })
+        $('#btn').on('click', function () {
+            // $.get('/base', 'name=zhangsan&age=30', function (response) {
+            //     console.log(response);
+            // })
+            $.post('/data', 'name=zhangsan&age=30', function (response) {
+                console.log(response);
+            })
+        })
+    </script>
+</body>
+
+</html>

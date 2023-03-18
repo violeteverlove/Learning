@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            background-color: blueviolet;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>123</p>
+    <script>
+        var p = document.querySelector('p');
+        p.innerHTML = getTime();
+
+        function getTime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s;
+        }
+    </script>
+
+
+</body>
+
+</html>

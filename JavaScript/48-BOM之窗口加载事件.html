@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>12</button>
+    <script>
+        //有这个处理函数可以放到任意地方 //传统方式只能使用一次
+        // window.onload = function () {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function () {
+        //         alert('点击我');
+        //     })
+        // }
+        //BOM即浏览器对象模型，它提供了与浏览器窗口进行交互的对象 顶级对象是window
+        //window.onload是窗口（页面）加载事件
+        //当文档内容完全加载完成（包括图片，脚本，css）会触发该处理函数
+        window.addEventListener('load', function () {
+            //使用监听没有限制
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('点击我');
+            })
+        })
+        window.addEventListener('load', function () {
+            //使用监听没有限制
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('123123');
+            })
+        })
+        //懒加载 仅当DOM加载完成，不包括图片，样式，flash等等  
+        document.addEventListener('DOMContentLoaded', function () {
+            alert('22');
+        })
+    </script>
+
+</body>
+
+</html>

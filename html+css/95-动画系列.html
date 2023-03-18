@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 页面打开，一个盒子从左边走到右边 */
+        @keyframes animate {
+
+            /* 状态 关键帧 */
+            0% {
+                transform: translate(0, 0);
+                background-color: skyblue;
+            }
+
+            25% {
+                transform: translate(1000px, 0);
+                background-color: violet;
+            }
+
+            50% {
+                transform: translate(1000px, 500px);
+                background-color: skyblue;
+            }
+
+            75% {
+                transform: translate(0, 500px);
+                background-color: violet;
+            }
+
+            100% {
+                transform: translate(0, 0);
+                background-color: skyblue;
+            }
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 调用动画 animation-name:动画名称 */
+            animation-name: animate;
+            /* 持续时间  animation-duration*/
+            animation-duration: 3s;
+            /* 动画何时开始 */
+            animation-delay: 1s;
+            /* 播放次数 */
+            animation-iteration-count: infinite;
+            /* 下个周期反向运动 */
+            animation-direction: alternate;
+            /* 动画结束让他停到结束状态 默认是backwords(回到初始状态)  
+            forwords(回到结束状态)  */
+            /* animation-fill-mode: forwards; */
+            
+            /* 动画简写 不包含 animation-play-state */
+            /* 持续时间和何时开始时间有先后顺序 持续在前 */
+            /* animation: animate 3s 1s infinite alternate; */
+        }
+
+        .box:hover {
+            /* 鼠标经过暂停动画 */
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+</body>
+
+</html>

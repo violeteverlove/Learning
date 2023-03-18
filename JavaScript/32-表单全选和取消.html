@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 600px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+
+
+        /* td,
+        th {
+            border: 1px solid #333;
+        } */
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+            border-bottom: 1px solid #333;
+        }
+
+        #j_tb tr {
+            height: 40px;
+            border-bottom: 1px solid #333;
+
+        }
+
+        /* tr:hover {
+            background-color: blue;
+        } */
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="j_cbAll"></th>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        //全选和取消全选做法
+        var cbAll = document.querySelector('#j_cbAll');
+        var cbs = document.querySelector('#j_tb').querySelectorAll('input');
+        // var flag = 0;
+        // console.log(cbs[0].checked);
+
+        cbAll.onclick = function () {
+            // this.checked可以得到当前复选框选定状态 选中true 没选否
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = this.checked;
+            }
+            //自己写的
+            // if (flag == 0) {
+            //     for (var i = 0; i < cbs.length; i++) {
+            //         cbs[i].checked = this.checked;
+            //         flag = 1;
+            //     }
+            // }
+            // else {
+            //     for (var i = 0; i < cbs.length; i++) {
+            //         cbs[i].checked = this.checked;
+            //         flag = 0;
+            //     }
+            // }
+        }
+        //下面复选框影响上面的
+        //给每个复选框给上点击事件
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].onclick = function () {
+                // flag控制全选按钮是否选中
+                var flag = true;
+                //每次点击检查复选框是否全部选中   
+                for (var i = 0; i < cbs.length; i++) {
+                    // 没有被选上
+                    if (cbs[i].checked == false) {
+                        flag = false;
+                    }
+                }
+                cbAll.checked = flag;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

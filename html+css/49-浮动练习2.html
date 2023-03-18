@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* 清除所有元素的内外边距 */
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 1226px;
+            height: 285px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .box li {
+            width: 296px;
+            height: 285px;
+            background-color: tomato;
+            /* 将li元素浮动 横向摆放 */
+            float: left;
+            margin-right: 14px;
+        }
+
+        /* 清除最后一个li元素右外边距为0 避免位置不够 自动跳行 */
+        /* 而且需要考虑权重问题 */
+        .box .last {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 有顺序的排放位置也可以用ul来做 -->
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="last">4</li>
+    </ul>
+
+</body>
+
+</html>

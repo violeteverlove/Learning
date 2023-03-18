@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //为什么需要使用构造函数
+        //因为前面两种创建对象的方式只能创建一个对象
+        //这个函数封装的不是普通代码 而是对象
+        //即把我们对象里面相同的属性和方法抽象出来封装到函数里面
+
+        //语法格式
+        // function 构造函数名(){
+        //     this.属性=值；
+        //     this.方法=function(){};
+        // }
+        function User(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.color = function (color) {
+                console.log(color);
+            }
+        }
+        //new关键字执行过程
+        //1.可以在内存中创建一个空对象
+        //2.this就会指向刚才创建的空对象
+        //3.执行代码 给这个空对象添加属性和方法
+        //4.返回这个新对象（不需要return）
+        var user = new User('张三', 18, '男');//调用函数返回的是一个对象
+        console.log(typeof (user));
+        console.log(user.name);
+        console.log(user.sex);
+        user.color('黄色');
+
+
+
+        //1.构造函数名字首字母要大写
+        //2.构造函数不需要return就可以返回结果
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

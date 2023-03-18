@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 为了有效减少服务器接收和发送请求的次数，提高页面的加载速度，出现了精灵技术 -->
+    <!-- （也称为CSS Sprites、CSS 雪碧） -->
+    <!-- 主要针对于背景图片使用 即把多个小背景图整合到一张大图片上 -->
+    <!-- 移动背景图片位置 用background-position
+         往上 往左走为负值 -->
+    <!-- 需要精确测量 -->
+    <style>
+        /* 示例 简单测试调整位置 */
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            /* background-color: royalblue;
+            background-image: url(image/image3.jpg);
+            background-position: -200px -400px;
+            background-repeat: no-repeat; */
+            background: url(image/image3.jpg) -200px -400px no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+</body>
+
+</html>

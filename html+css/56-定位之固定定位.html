@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 固定到浏览器可视区的位置 -->
+    <!-- 选择器{position fixed;} -->
+    <!-- 1.以浏览器的可视窗口为参照点移动元素。 -->
+    <!-- 2.跟父元素没有关系 -->
+    <!-- 3.不随滚动条滚动 -->
+    <!-- 4.不占有原有位置（脱标） -->
+    <style>
+        body {
+            height: 1500px;
+        }
+
+        .guding {
+            position: fixed;
+            top: 100px;
+            right: 200px;
+            width: 600px;
+            height: 600px;
+            background-color: pink;
+        }
+
+        .guding img {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="guding">
+        <img src="image/image.jpg" alt="">
+    </div>
+
+</body>
+
+</html>

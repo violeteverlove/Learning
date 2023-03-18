@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 块元素 */
+        div {
+            /* 盒子宽度默认继承父标签 */
+            /* 高度自己设置 */
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        /* 行内元素 一行内可以显示多个 设置的宽高无效 宽度根据内容的宽度 */
+        span {
+            background-color: pink;
+            height: 100px;
+            width: 100px;
+        }
+
+        img {
+            width: 400px;
+            ;
+        }
+
+        a {
+            /* 行内元素转换为块元素 */
+            display: block;
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+
+        }
+
+        .nav {
+            /* 块元素转换为行内元素 此时定义宽度 高度无效 */
+            display: inline;
+            width: 200px;
+            height: 200px;
+        }
+
+        .zhuan {
+            width: 200px;
+            height: 100px;
+            /* 转换为行内块元素 */
+            display: inline-block;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>样式</div>
+    <span>样式</span>
+    样式
+    <span>样式</span>
+    <!-- 行内块元素 img input td -->
+    <!-- 和相邻行内元素在一行上 之间有缝隙
+    默认宽度为内容宽度
+    高度 ，行高，边距等等可以控制 -->
+    <img src="imges/img.jpg" wei alt=""><img src="imges/img.jpg" alt="">
+    <a href="#">样式</a>
+    <a href="#">样式</a>
+    <div class="nav">转换为行元素</div>
+    <div class="nav">转换为行元素</div>
+    <span class="zhuan">行内元素转换为行内块元素</span>
+    <span class="zhuan">行内元素转换为行内块元素</span>
+</body>
+
+</html>

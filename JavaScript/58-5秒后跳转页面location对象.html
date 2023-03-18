@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>直接跳转</button>
+    <div></div>
+    <script>
+        //location属性用于获取或设置窗体的URL（统一资源定位符），并且可以用于解析URL
+        //返回的是一个对象
+        //location.href返回整个URL --.host 返回主机（域名）  
+        //--.port返回端口号  --.search返回参数 --.hash返回片段 #后面内容常见链接 锚点
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.addEventListener('click', function () {
+            location.href = 'https://www.bilibili.com/';
+        })
+        var time = 5;
+        countDown();
+        setInterval(countDown, 1000);
+        function countDown() {
+            if (time == 0) {
+                location.href = 'https://www.bilibili.com/';
+            }
+            else {
+                div.innerHTML = '你将在' + time + '秒钟跳转页面';
+                time--;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

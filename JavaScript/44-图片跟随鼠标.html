@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            width: 50px;
+            top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../html+css/image/image.jpg" alt="">
+    <script>
+        var img = document.querySelector('img');
+        //图片绝对 在页面中移动 给documen注册事件
+        //原理 每次鼠标移动 获得最新的鼠标坐标 将其作为图片的top和left值
+        document.addEventListener('mousemove', function (e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log('x坐标是' + x, 'y坐标是' + y);
+            //别忘记加px x-图片一半宽度 让鼠标居中
+            img.style.left = x - 25 + 'px';
+            img.style.top = y - 25 + 'px';
+        })
+    </script>
+
+</body>
+
+</html>

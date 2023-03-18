@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        textarea {
+            width: 300px;
+            height: 110px;
+            resize: none;
+        }
+
+        li {
+            list-style: none;
+            background-color: cornsilk;
+            width: 300px;
+        }
+
+        li a {
+            float: right;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="">123</textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        //事件
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('请输入内容')
+                return false;
+            }
+            else {
+                var li = document.createElement('li');
+                //阻止链接跳转 javascript:void(0);或javascript:;
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                // ul.appendChild(li);
+                ul.insertBefore(li, ul.children[0]);
+                var as = document.querySelectorAll('a');
+                for (i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        //node.removeChild(child) 要删除a所在的li(a的父亲)
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

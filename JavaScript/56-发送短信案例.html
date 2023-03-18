@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码:<input type="text"><button style="width:45px;text-align: center;">发送</button>
+    <script>
+        //点击按钮。button disabled为true
+        //按钮内容发生变化，用innerHtml
+        //秒数有变化，需要用到计时器
+        //定义一个变量，在定时器里自减
+        //变量为0 停止定时器，并且复原按钮状态
+        var btn = document.querySelector('button');
+        var second = 3;
+        var time = null;
+        btn.addEventListener('click', function () {
+            this.disabled = true;
+            time = setInterval(function () {
+                if (second == 0) {
+                    clearInterval(time);
+                    //这里不能用this 这边this指向window window.setInterval
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    second = 3;//需要重新开始
+                }
+                else {
+                    btn.innerHTML = '' + second + '秒'
+                    second--;
+                }
+            }, 1000);
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

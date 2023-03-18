@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- get请求不能提交json对象数据格式的，传统网站表单提交也是不支持json对象数据格式的 -->
+    <script>
+        //创建ajax对象
+        var xhr = new XMLHttpRequest();
+        //向哪发送请求，已什么方式请求
+        xhr.open('post', 'http://localhost:3000/json');
+        //通过请求头告诉服务端请求参数的格式是什么
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        //发送请求
+        //JSON.stringify({ name: 'zhangsan', age: 40 }) 将json对象转换为字符串
+
+        xhr.send(JSON.stringify({ name: 'zhangsan', age: 40 }));
+        //获取服务器响应到客户端的数据
+        xhr.onload = function () {
+            console.log(typeof (xhr.responseText));
+            console.log(xhr.responseText);
+        }
+    </script>
+
+</body>
+
+</html>

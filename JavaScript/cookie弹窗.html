@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup {
+            position: relative;
+            margin: 0 auto;
+            width: 70%;
+            height: 100px;
+            background-color: beige;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* .popup::after {
+            display: block;
+            content: '';
+            width: 70%;
+            height: 30px;
+            background-color: azure;
+        } */
+
+        button {
+            width: 100px;
+            height: 40px;
+            border: 1px solid gray;
+            border-radius: 7px;
+            margin-right: 40px;
+        }
+
+        button:hover {
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        .popup .mark {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: darkgrey;
+
+        }
+    </style>
+</head>
+
+<body onload="check()">
+    <div class="popup">
+        <div>
+            <p>利用cookies创建一个窗口,窗口含有2个button,分别是接受和拒绝</p>
+            <p> 当点击接受后,弹窗不再出现</p>
+            <p> 当点击拒绝后,弹窗关闭,并且当页面重新刷新后,弹窗继续出现.</p>
+        </div>
+        <div><button onclick="checkCookie()">
+                ACCEPT
+            </button>
+            <button onclick="refuse()">
+                REJECT
+            </button>
+        </div>
+        <div class="mark"></div>
+    </div>
+
+    <script>
+        //页面加载判断cookie
+        function check() {
+            var accept = getCookie("accept");
+            var a = document.querySelector(".popup");
+            if (accept != "") {
+                a.style.display = "none";
+            } else {
+                a.style.display = "flex";
+            }
+        }
+        //设置cookie
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        //获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        //检查cookie设置情况
+        function checkCookie() {
+            var accept = getCookie("accept");
+            var a = document.querySelector(".popup");
+            if (accept != "") {
+            } else {
+                setCookie("accept", 1, 30);
+                a.style.display = "none";
+            }
+        }
+        //拒绝功能
+        function refuse() {
+            var a = document.querySelector(".popup");
+            a.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

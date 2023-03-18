@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 单行做法 多行做法web-kit内核兼容问题 可以给后台做 */
+        .box1 {
+            width: 150px;
+            height: 80px;
+            background-color: rosybrown;
+            margin: 100px auto;
+            /* 文字显示不完自动换行 */
+            /* white-space: normal; */
+            white-space: nowrap;
+            /*不换行*/
+            overflow: hidden;
+            /*溢出隐藏*/
+            text-overflow: ellipsis;
+            /*溢出部分省略号显示*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        文字强制一行显示 溢出部分隐藏用用省略号显示
+    </div>
+
+</body>
+
+</html>

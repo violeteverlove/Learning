@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let line = 'YUANzhi1987';
+        let result = ''
+        const map = {
+            'abc': '2',
+            'def': '3',
+            'ghi': '4',
+            'jkl': '5',
+            'mno': '6',
+            'pqrs': '7',
+            'tuv': '8',
+            'wxyz': '9'
+        }
+        for (let i = 0; i < line.length; i++) {
+            if (/^[A-Z]$/.test(line[i])) {
+                // 如果是大写字母
+                if (line[i] === 'Z') {
+                    result += 'a';
+                } else {
+                    //fromCodePoint返回由指定的 UTF-16 代码单元序列创建的字符串
+                    //charCodeAt(0)字符串第一个字符的UTF-16码 字母的码是按顺序排列的
+                    result += String.fromCodePoint(line[i].toLowerCase().charCodeAt(0) + 1)
+                }
+                continue;
+            }
+            if (/^[a-z]$/.test(line[i])) {
+                for (let zm in map) {
+                    // console.log(zm, 'zm是什么');
+                    if (zm.includes(line[i])) {
+                        result += map[zm]
+                    }
+                }
+                continue;
+            }
+            if (/^[0-9]$/.test(line[i])) {
+                result += line[i];
+                continue;
+            }
+        }
+        console.log(result)
+
+    </script>
+</body>
+
+</html>

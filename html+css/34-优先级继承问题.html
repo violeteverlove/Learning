@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承的权重为0</title>
+    <style>
+        /* 父亲权重位100 */
+        #father {
+            color: red;
+        }
+
+        /* 儿子p继承的权重为o */
+        /* 标签被选出来 优先执行该标签样式 */
+        p {
+            color: pink;
+        }
+
+        body {
+            color: red;
+        }
+
+        /* 权重叠加问题 无进位！！！！！！！！！！ */
+        /* 权重0,0,0,1 */
+        li {
+            color: red;
+        }
+
+        /* 权重0,0,0,2 */
+        ui li {
+            color: pink;
+        }
+
+        /* 权重0,0,1,1  所以li呈现绿色*/
+        .nav li {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="father">
+        <p>继承权重为0</p>
+    </div>
+    <a href="#">浏览器默认有样式 蓝色加下划线 继承权重为0 a照样执行自己的样式</a>
+
+    <ul class="nav">
+        <li>样式</li>
+        <li>样式</li>
+        <li>样式</li>
+    </ul>
+
+</body>
+
+</html>

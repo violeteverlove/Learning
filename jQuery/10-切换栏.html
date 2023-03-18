@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab {
+            width: 600px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: blueviolet;
+        }
+
+        .tab_list {
+            height: 60px;
+            background-color: cornsilk;
+        }
+
+
+        .tab_list ul li {
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 20px;
+
+        }
+
+
+        .item {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li style="background-color: violet;">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品内容</div>
+            <div class="item">规格模块</div>
+            <div class="item">保障模块</div>
+            <div class="item">商品评价模块</div>
+            <div class="item">手机社区模块</div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.tab_list ul li').click(function () {
+                $(this).css('background', 'violet').siblings().css('background', '');
+                //得到当前索引号 $(this).index()
+                var index = $(this).index();
+                console.log(index);
+                //链式编程
+                // 让该索引号对应的内容显示出来 //其余内容隐藏  
+                $('.tab_con>div').eq(index).show().siblings().hide();
+
+
+
+
+            })
+
+
+        })
+
+    </script>
+</body>
+
+</html>

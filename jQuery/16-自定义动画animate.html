@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <!-- animate(params,[speed完成时间],[easing],[fn]) 
+        params：想要更改的样式属性，以对象形式传递
+    必须写。属性名可以不用引号，但如果是复合属性则需采用驼峰命名法-->
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function () {
+            $('div').click(function () {
+                $('div').animate({
+                    left: 200,
+                    top: 200,
+                    opacity: .5,
+                    width: 300
+
+                }, 500)
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 决定定位盒子居中 不能通过margin居中 */
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 普通盒子居中 */
+            /* margin: 0 auto; */
+
+            /* 绝对定位盒子居中方法 */
+            /* 父容器的50% */
+            left: 50%;
+            /* margin left 负值 本身宽度的一半 */
+            margin-left: -100px;
+
+            /* 垂直居中一样 */
+            top: 50%;
+            margin-top: -100px;
+        }
+
+        /* 行内元素加绝对定位或固定定位，可以直接设定宽度和高度 */
+        span {
+            position: absolute;
+            top: 300px;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        /* 块元素的话，不给宽度或高度，默认内容的大小 */
+
+
+        /* 浮动元素不会压文字，定位会 浮动最初的目的是做文字环绕效果
+        <p><img src=""></p>  img{folat:left} */
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span>123</span>
+
+</body>
+
+</html>

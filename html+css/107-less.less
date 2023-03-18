@@ -1,0 +1,41 @@
+@import "common";
+//less可以嵌套，伪类选择器、交集选择器等使用&符号
+//运算符左右两侧有空格
+//两个数参与运算 只有一个数有单位，则结果以它为准
+// 两个数有单位，已第一个数单位为准
+
+body{
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2f2;
+    @baseFont:50;
+    .search-content{
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 15rem;
+        height: (88rem / @baseFont);
+        background-color: #FFC001;
+        .classify{
+           width: (44rem / @baseFont);
+           height: (70rem / @baseFont);
+           background-color: wheat;
+           margin: (11rem / @baseFont) (25rem / @baseFont) (7rem / @baseFont) (24rem / @baseFont);
+        }
+        .search{
+            flex: 1;
+            background-color: yellowgreen;
+        }
+        .login{
+            width: (75rem / @baseFont);
+            height: (70rem / @baseFont);
+            background-color: blue;
+            margin: (10rem / @baseFont);
+        }
+    }
+}

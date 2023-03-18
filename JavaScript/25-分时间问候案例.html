@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../html+css/image/image.jpg" alt="">
+    <div>123</div>
+    <script>
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        //获得当前系统时间小时
+        var date = new Date();
+        var h = date.getHours();
+        //事件
+        if (h < 12) {
+            img.src = '../html+css/image/image2.png';
+            div.innerHTML = '上午时间';
+        }
+        if (12 <= h < 18) {
+            img.src = '../html+css/image/image3.png';
+            div.innerHTML = '中午时间';
+        }
+        if (18 <= h < 24) {
+            img.src = '../html+css/image/image4.png';
+            div.innerHTML = '晚上时间';
+        }
+        else {
+            img.src = '../html+css/image/image5.png';
+            div.innerHTML = '肝帝时间';
+        }
+    </script>
+
+
+</body>
+
+</html>

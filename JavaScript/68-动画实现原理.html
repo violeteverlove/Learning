@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始</button>
+    <div></div>
+    <div class="box"></div>
+    <script>
+        //核心原理：通过定时器setIntval（）不断移动盒子
+        //获取盒子当前位置
+        //在当前位置加上1个移动距离
+        //利用定时器不断重复这个操作
+        //加一个结束定时器的条件
+        //需要添加定位
+        var div = document.querySelector('div');
+        var time = setInterval(function () {
+            if (div.offsetLeft == 400) {
+                //停止动画，本质停止计时器
+                clearInterval(time);
+            }
+            div.style.left = div.offsetLeft + 10 + 'px';
+        }, 30);
+
+        //简单动画函数封装obj目标对象 target目标位置
+        //给不同对象指定不同的定时器
+        function animate(obj, target) {
+            //当不断点击按钮，因为开启很多计时器，速度越来越快
+            //解决方案： 让元素只有一个定时器
+            clearInterval(obj.time);
+            obj.time = setInterval(function () {
+                if (obj.offsetLeft == target) {
+                    //停止动画，本质停止计时器
+                    clearInterval(time);
+                }
+                obj.style.left = obj.offsetLeft + 10 + 'px';
+            }, 30);
+        }
+        var box = document.querySelector('.box');
+        var btn = document.querySelector('button');
+
+        btn.addEventListener('click', function () {
+            animate(box, 400);
+        })
+    </script>
+
+
+</body>
+
+</html>

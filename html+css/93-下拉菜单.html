@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        #menu,
+        #menu ul {
+            font-size: 16px;
+        }
+
+        #menu>li {
+            position: relative;
+            width: 130px;
+            height: 30px;
+            float: left;
+            text-align: center;
+            background-color: skyblue;
+            transition: background-color 300ms;
+        }
+
+        #menu>li:hover {
+            background-color: violet;
+        }
+
+        #menu>li>ul {
+            position: absolute;
+            /* 在父盒子的最下面 */
+            top: 100%;
+            /* 最小宽度为父亲的百分百 */
+            min-width: 100%;
+            background-color: #cff;
+            /* 最大高度为0 后续过渡属性放大以显示小li */
+            max-height: 0px;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 600ms;
+        }
+
+        #menu>li:hover>ul {
+            max-height: 130px;
+            opacity: 1;
+        }
+
+        #menu>li li:hover {
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li><a href="">学校概括</a>
+            <ul>
+                <li><a href="">学校简介</a></li>
+                <li><a href="">历史沿革</a></li>
+                <li><a href="">学校章程</a></li>
+                <li><a href="">现任领导</a></li>
+                <li><a href="">学校标识</a></li>
+                <li><a href="">校园风光</a></li>
+            </ul>
+        </li>
+        <li><a href="">机构设置</a>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li><a href="">人才培养</a>
+            <ul>
+                <li><a href="">教务处</a></li>
+                <li><a href="">研究所院</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>

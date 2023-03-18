@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>111111</div>
+    <div>1111111</div>
+    <div>111111111</div>
+    <div>111111111</div>
+    <script>
+        $(function () {
+            console.log($('div'));
+            // 设置div背景颜色 jQue对象不能用style
+            $('div').css('background', 'violet')
+            //隐式迭代就是把匹配的所有元素内部进行遍历循环，给每一个元素添
+            // 加css方法
+        })
+    </script>
+
+</body>
+
+</html>

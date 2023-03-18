@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <frameset cols="50%,50%,">
+        <frame src="frame_a.htm">
+            <frame src="frame_c.htm">
+    </frameset> -->
+    <style>
+        /* .content_left {
+            width: 30%;
+            height: 500px;
+            float: left;
+            border: 1px solid #000;
+        }
+
+        .content_right {
+            width: 60%;
+            height: 400px;
+            float: right;
+            border: 1px solid #000;
+        } */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .left {
+            float: left;
+            width: 10%;
+            height: 800px;
+            background-color: #ccc;
+        }
+
+        .right {
+            float: left;
+            width: 90%;
+            height: 800px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="content_left">
+        <ul>
+            <li><a href="http://taobao.com" target="demo_iframe">淘宝</a></li>
+            <li><a href="http://baidu.com" target="demo_iframe">百度</a></li>
+        </ul>
+    </div>
+    <div class="content_right">
+        <iframe src="http://baidu.com" name="demo_iframe" height="500" width="920"></iframe>
+    </div> -->
+    <!-- frameborder=0  -->
+    <div class="left">
+        <ul>
+            <li><a href="houtai.html" target="content">用户管理</a></li>
+            <li><a href="houtai2.html" target="content">赛事管理</a></li>
+            <li><a href="houtai3.html" target="content">场地管理</a></li>
+            <li><a href="houtai4.html" target="content">器材管理</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <iframe src="http://baidu.com" name="content" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 定位=定位模式+边偏移 -->
+    <!-- 静态 相对 绝对 固定定位 -->
+    <style>
+        /* 相对于其原来的位置进行定位 */
+        /* 原来的标准流位置继续占有 即不脱标 保留原来位置 */
+        .box1 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            left: 100px;
+            background-color: rgba(38, 209, 95, 0.2);
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="box1">relative top100px left100px</div>
+    <div class="box2"></div>
+</body>
+
+</html>

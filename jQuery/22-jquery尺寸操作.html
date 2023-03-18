@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 10px solid violet;
+            padding: 30px;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function () {
+            //1.获取width/height的大小 不包含边框 内边距 外边距
+            console.log($('div').width());
+            //2. innerWidth() 包含padding
+            console.log($('div').innerWidth());
+            //3. outerrWidth() 包含padding 边框
+            console.log($('div').outerWidth());
+            //4. outerrWidth(true) 包含padding 边框 外边距
+            console.log($('div').outerWidth(true));
+        })
+    </script>
+</body>
+
+</html>

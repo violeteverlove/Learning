@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: url(../html+css/image/image3.jpg) no-repeat center 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 70px;
+            margin: 100px auto;
+            border: 1px solid black;
+        }
+
+        .box ul li {
+            float: left;
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="../html+css/image/image3.jpg" alt=""></li>
+            <li><img src="../html+css/image/image6.jpg" alt=""></li>
+            <li><img src="../html+css/image/image7.jpg" alt=""></li>
+            <li><img src="../html+css/image/image8.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        var imgs = document.querySelector('.box').querySelectorAll('img');
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                console.log(this.src);
+                document.body.style.backgroundImage = 'url(' + this.src + ')';//字符串拼接 引引加加
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            position: relative;
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 250px;
+            border: 1px solid red;
+            /* 防止浮动时边框重叠加深 */
+            margin-left: -1px;
+
+        }
+
+        /* ul li:hover {
+            1.盒子没定位的情况下加相对定位即可 解决被压住边框显示不出来
+            的问题
+            position: relative;
+            border: 1px solid skyblue;
+        } */
+
+        ul li:hover {
+            /* 盒子有定位的情况下 用z-index提高层级 */
+            z-index: 2;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+</body>
+
+</html>

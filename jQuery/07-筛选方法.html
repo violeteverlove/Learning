@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">儿子</div>
+    </div>
+    <div class="nav">
+        <p>p1</p>
+        <div>
+            <p>p2</p>
+        </div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li class="item">2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li class="item">2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+</body>
+<script>
+    $(function () {
+        //.parents() 返回最近一级的父元素
+        console.log($('.son').parent());
+        //查找孩子
+        console.log($('.nav').children('p'));//找亲儿子
+        console.log($('.nav').find('p'));//找后代的p
+        //兄弟
+        //除了自身的亲兄弟改变样式
+        $('ol .item').siblings('li').css('color', 'red');
+        //第几个元素
+        $('ul li:eq(2)').css('color', 'blue');//选择器形式
+        $('ul li').eq(3).css('color', 'blue');//选择方法
+        //判断是否有该类名
+        console.log($('ul li').eq(1).hasClass('item'));
+        console.log($('ul li').eq(2).hasClass('item'));
+        //主要记住parent()children()find()siblings()eq()
+    })
+</script>
+
+</html>

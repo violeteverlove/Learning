@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/first.css">
+
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <span>欢迎-------</span>
+    <div class="header">
+        <div class="logo">海大体育管理系统</div>
+        <div class="mid">
+            <ul class="">
+                <li class="current">首页</li>
+                <li>赛事信息</li>
+                <li>器材信息</li>
+                <li>场地信息</li>
+                <li>个人中心</li>
+            </ul>
+
+        </div>
+        <div class="right">
+            <a href="">退出登录</a>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="item" style="display: block;">
+            123123123
+        </div>
+        <div class="item">
+            <div class="my">
+                <button>我的赛事</button>
+            </div>
+            <div class="content">
+                <ul style="margin-top: 5px;">
+                    <li>赛事名称</li>
+                    <li>举办价格</li>
+                    <li>开始时间</li>
+                    <li>结束时间</li>
+                    <li>操作</li>
+                </ul>
+                <ul>
+                    <li>名称</li>
+                    <li>价格</li>
+                    <li>开始</li>
+                    <li>结束</li>
+                    <!-- <li>
+                        <a href="#">预约</a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="foot">
+                <i>总共页</i>
+                <a href="">上一页</a>
+                <a href="">下一页</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="my">
+                <button>我的预约</button>
+            </div>
+            <div class="content">
+                <ul style="margin-top: 5px;">
+                    <li>器材名称</li>
+                    <li>器材价格</li>
+                    <li>器材状态</li>
+                    <li>描述</li>
+                    <li>操作</li>
+                </ul>
+                <ul>
+                    <li>名称</li>
+                    <li>租用价格</li>
+                    <li>状态</li>
+                    <li>描述</li>
+                    <li>
+                        <a href="#">预约</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="foot">
+                <i>总共页</i>
+                <a href="">上一页</a>
+                <a href="">下一页</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="my">
+                <button>我的预约</button>
+            </div>
+            <div class="content">
+                <ul style="margin-top: 5px;">
+                    <li>场地名称</li>
+                    <li>场地价格</li>
+                    <li>场地状态</li>
+                    <li>描述</li>
+                    <li>操作</li>
+                </ul>
+                <ul>
+                    <li>名称</li>
+                    <li>租用价格</li>
+                    <li>状态</li>
+                    <li>描述</li>
+                    <li>
+                        <a href="#">预约</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="foot">
+                <i>总共页</i>
+                <a href="">上一页</a>
+                <a href="">下一页</a>
+            </div>
+
+        </div>
+        <div class="item">
+            123123123121312313
+        </div>
+
+    </div>
+    <script>
+        var mid = document.querySelector('.mid');
+        var lis = mid.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        //选项模块
+        for (var i = 0; i < lis.length; i++) {
+            //设置索引号
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+                //显示模块
+                var index = this.getAttribute('index');
+                console.log(index);
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

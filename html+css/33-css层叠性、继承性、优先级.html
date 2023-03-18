@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 层叠性 相同选择权 相同样式
+        div {
+            color: red;
+        }
+
+        div {
+            color: pink;
+        } */
+
+
+
+        /* 行的继承 子标签继承父类 行高是该标签字体大小的1.5倍
+        没有设置字体大小则继承父标签的字体大小
+        body {
+            color: pink;
+            font: 12px/1.5 'Microsoft YaHei';
+        }
+
+        div {
+            font-size: 15px;
+        } */
+
+        div {
+            color: red;
+        }
+
+        .text {
+            color: pink;
+        }
+
+        /* 优先级 继承或*<元素选择器<类选择器<id选择器<行内style<!important */
+    </style>
+
+
+</head>
+
+<body>
+    <!-- <div>后来居上</div> -->
+
+
+    <!-- <div>继承性</div>
+    <p>继承性</p> -->
+
+    <div class="text">优先级</div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <span class="erweima">×</span>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ol>
+        <li>我是第一个</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>我是最后一个</li>
+    </ol>
+    <div class="brother1"></div>
+    <div class="brother2"></div>
+    <i></i>
+    <ul class="del">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button>删除</button>
+    <b>123123123</b>
+
+    <script>
+        //因为利用dom提供的方法获取元素逻辑性不强、繁琐
+        //利用节点层级关系获取元素
+        //利用父子兄弟关系获取元素 逻辑强但兼容性差
+        //节点至少拥有nodeType节点类型、nodeName节点名称、nodeValue节点值
+        //元素节点 Type为1 属性节点Type为2 文本节点Type为3
+
+
+        //1.父节点 parentNode
+        //以前写法
+        var erweima = document.querySelector('.erweima');
+        // var box =document.querySelector('.box');
+        //得到的是离元素最近的父级节点(亲爸爸)；找不到为空
+        console.log(erweima.parentNode);
+        //子节点  包含了文本节点（包含空格） 元素节点 获取用节点类型区分
+        var ul = document.querySelector('ul');
+        var ol = document.querySelector('ol');
+        console.log(ul.childNodes);
+        //parentNode.children 获取元素子节点 实际开发常用
+        console.log(ul.children);
+        //获取子节点的第一个子元素和最后一个子元素
+        console.log(ol.firstChild);//第一个子节点 不管是文本还是元素
+        //获取第一个元素节点 有兼容性问题
+        console.log(ol.firstElementChild);
+        console.log(ol.lastElementChild);
+        //常用这个 
+        console.log(ol.children[0]);
+        //最后一个
+        console.log(ol.children[ol.children.length - 1]);
+
+
+        //兄弟节点
+        var brother1 = document.querySelector('.brother1');
+        //获取下个兄弟节点 包括文本
+        console.log(brother1.nextSibling);
+        //nextElementSibling 没找到返回空 还是有兼容性问题
+        console.log(brother1.nextElementSibling);
+        console.log(brother1.previousElementSibling);
+
+        //创建节点和添加节点
+        var p = document.createElement('p');
+        //后面追加元素 类似于数组中的push
+        var i = document.querySelector('i');
+        i.appendChild(p);
+        //插入节点 node.insertBefore(child,指定元素)
+        var span = document.createElement('span');
+        i.insertBefore(span, i.children[0]);//插入的元素在p标签前面
+
+        //删除节点  node.removeChild
+        var ul = document.querySelector('.del');
+        // ul.removeChild(ul.children[1]);
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            if (ul.length == 0) {
+                this.disabled = 'true';
+            }
+            else {
+                ul.removeChild(ul.children[0]);
+            }
+        }
+
+        //复制节点 node .cloneNode()
+        var b = document.querySelector('b');
+        var bs = b.cloneNode(true);//参数为空或者为false 为浅拷贝不复制内容
+        b.appendChild(bs);
+
+    </script>
+
+</body>
+
+</html>

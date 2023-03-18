@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/houtai.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="nav">
+        <div class="item">
+            <ul>
+                <li><a href="houtai.html">赛事管理</a></li>
+                <li><a href="houtai2.html">用户管理</a></li>
+                <li><a href="houtai3.html">场地管理</a></li>
+                <li class="current"><a href="houtai4.html">器材管理</a></li>
+            </ul>
+        </div>
+        <div class="item-content">
+            <div class="content" style="display: block;">
+                <!-- 内容头部 -->
+                <div class="content-head">
+                    <ul class="one">
+                        <li><label for="changdiid">赛事序号:&nbsp;<input type="text" name="id" id="changdiid"></label></li>
+                        <li><label for="describe">描述:&nbsp;<input type="text" name="des" id="describe"></label></li>
+                        <li><label for="start">开始时间:&nbsp;<input type="text" name="starttime" id="start"></label>
+                        </li>
+                    </ul>
+                    &nbsp;&nbsp;&nbsp;
+                    <button style="width: 40px;height: 30px;">搜索</button>
+                </div>
+                <!-- 表格内容 -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>器材名称</th>
+                            <th>描述</th>
+                            <th>器材数量</th>
+                            <th>单件赔偿</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="match"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+        // 动态生成表格
+        // 1.准备学生的数据 用数组存对象 对象里多个数据
+        var datas = [
+            {
+                name: '张三',
+                des: '222',
+                start: '8:10',
+                end: '10:10'
+            }, {
+                name: '小红',
+                des: '222',
+                start: '8:10',
+                end: '10:10'
+            }, {
+                name: '小明',
+                des: '222',
+                start: '8:10',
+                end: '10:10'
+            }, {
+                name: '赵四',
+                des: '222',
+                start: '8:10',
+                end: '10:10'
+            }
+        ];
+        // 2.先创建行
+        var tbody = document.querySelector('.match');
+        for (var i = 0; i < datas.length; i++) {
+            //创建tr行
+            var tr = document.createElement('tr');
+            //作为儿子插入tbody里面
+            tbody.appendChild(tr);
+
+            //行里面创建单元格td 数量取决于每个对象的属性个数
+            //使用for遍历对象 data[i]
+            for (var k in datas[i]) {
+                //里面for循环管理td
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                //把对象里面的属性值datas[i][k]给td
+                console.log(datas[i][k]);
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+
+
+            //     //3.创建有编辑 删除两个字的单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a class="edit" href="javascript:;">编辑</a>&nbsp&nbsp <a class="delete"href="javascript:;">删除</a>';
+            tr.appendChild(td);
+
+        }
+
+        //for(var k in obj){
+        //k 得到的是属性名
+        //obj[k]得到的是属性值
+        // }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="school">
+        <h2>{{name}}</h2>
+        <button @click="show">点击提示信息</button>
+        <!-- 阻止默认事件流触发 -->
+        <a href="https://www.bilibili.com" @click.prevent="acp">123123</a>
+        <!-- 阻止冒泡 -->
+        <div @click="acp2">
+            <button @click.stop="acp2">点击提示信息</button>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#school',
+            data: {
+                name: '点击',
+            },
+            methods: {
+                show: function () {
+                    alert('提示信息')
+                },
+                acp: function () {
+                    alert('提示信息222')
+                },
+                acp2: function () {
+                    alert('提示信息222')
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <form @submit.prevent="demo">
+            <!-- trim 输入首尾空格过滤 -->
+            账号：<input type="text" v-model.trim="userInfo.account"><br>
+            密码：<input type="password" v-model="userInfo.password"><br>
+            性别:
+            男:<input type="radio" name="sex" value="userInfo.male">
+            女:<input type="radio" name="sex" value="userInfo.female"><br>
+            爱好:
+            学习<input type="checkbox" v-model="userInfo.hobby" value="study">
+            打游戏<input type="checkbox" v-model="userInfo.hobby" value="game">
+            吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat"><br>
+            年级
+            <select v-model="userInfo.grade">
+                <option value="">请选择年级</option>
+                <option value="dayi">大一</option>
+                <option value="daer">大二</option>
+                <option value="dasan">大三</option>
+            </select>
+            <!-- 失去焦点获取数据 -->
+            <textarea v-model.lazy="userInfo.other"></textarea><br>
+            <input type="checkbox" v-model="userInfo.agree">阅读并接受<a href="#">《用户协议》</a>
+            <button>提交</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                userInfo: {
+                    account: '',
+                    password: '',
+                    sex: 'male',
+                    hobby: [],
+                    grade: '',
+                    other: '',
+                    agree: ''
+                }
+            },
+            methods: {
+                demo() {
+                    console.log(JSON.stringify(this.userInfo));
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

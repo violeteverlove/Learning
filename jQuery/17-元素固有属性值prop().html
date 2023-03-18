@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="http://www.hao123.com" index="1"></a>
+    <script>
+        $(function () {
+            //获取属性值
+            console.log($('a').prop('href'));
+            //设置属性值
+            $('a').prop('href', 'http://www.bilibili.com');
+            //获取自定义属性值 attr
+            console.log($('a').attr('index'));
+            $('a').attr('index', '2');
+            //设置自定义属性值
+        })
+    </script>
+</body>
+
+</html>

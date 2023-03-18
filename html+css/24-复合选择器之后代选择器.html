@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 把ol里的li选出来换属性 */
+        /* 元素1 元素2{样式声明} 只要是后代就能设置 */
+        /* 元素可以是任意基础选择器 */
+        ol li {
+            color: blueviolet;
+        }
+
+        ol li a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .nav li a {
+            color: rgb(155, 30, 45);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li></li>
+        <li></li>
+        <li><a href="#">利兹</a></li>
+    </ol>
+    <ol class="nav">
+        <li></li>
+        <li></li>
+        <li><a href="#">利兹</a></li>
+    </ol>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除内外边距 */
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        /* 解决方案 */
+        /* 给父类定义上边框/定义上内边距/给父类添加overfolw:hidden; */
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: purple;
+            margin-top: 50px;
+            /* border: 1px solid transparent; */
+            /* padding: 1px; */
+            overflow: hidden;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+</body>
+
+</html>

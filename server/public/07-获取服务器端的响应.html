@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>ss</button>
+    <!-- Ajax状态码：表示Ajax请求的过程状态
+        0 1 2 3 4   4：响应已经完成，可以获取并
+    使用服务器的响应-->
+    <!-- Http状态码:表示请求的结果 服务器端返回的 -->
+    <!-- onreadystatechange事件：状态码发生变化自动触发该事件 -->
+    <script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'http://localhost:3000/readystate');
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                //状态码改变会被调用，多数用onload
+                //2
+                //3
+                //4
+                if (xhr.readyState === 4) {
+                    //判断服务器端返回的状态码，分别进行处理 xhr.status()
+                    // if (xhr.status == 400) {
+                    //     alert('请求出错')
+                    // }
+                    console.log(xhr.responseText);
+                }
+                //断网无法触发onload事件，会触发onerror事件
+                xhr.onerror = function () {
+                    alert('网络中断')
+                }
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

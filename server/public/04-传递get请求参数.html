@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ajax提交参数 不采用传统的submit类型而采用button类型 -->
+    <p><input type="text" name="" id="username"></p>
+    <p><input type="text" name="" id="pwd"></p>
+    <p><input type="button" name="" id="btn" value="提交"></p>
+    <script>
+        var btn = document.querySelector('#btn');
+        //获取用户名  密码框
+        var username = document.querySelector('#username');
+        var pwd = document.querySelector('#pwd');
+        btn.addEventListener('click', function () {
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            //获取用户在文本框的值
+            var usernamevalue = username.value;
+            var pwdvalue = pwd.value;
+            // alert(usernamevalue);
+            // alert(pwdvalue);
+            //拼接请求参数
+            var params = 'username=' + usernamevalue + '&pwd=' + pwdvalue + ''
+
+
+            xhr.open('get', 'http://localhost:3000/get?' + params);
+            xhr.send();
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 600px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+
+
+        /* td,
+        th {
+            border: 1px solid #333;
+        } */
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+            border-bottom: 1px solid #333;
+        }
+
+        #j_tb tr {
+            height: 40px;
+            border-bottom: 1px solid #333;
+
+        }
+
+        /* tr:hover {
+            background-color: blue;
+        } */
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="j_cbAll"></th>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox" class="j_cbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="j_cbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="j_cbox"></td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+                <td>111</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(function () {
+            $('#j_cbAll').change(function () {
+                // console.log($(this).prop('checked'));
+                //将全选按钮的属性赋值给子按钮
+                $('.j_cbox').prop('checked', $(this).prop('checked'))
+            })
+            //小的复选框控制全选按钮，
+            $('.j_cbox').change(function () {
+                //被选中的个数等于3时，全选按钮选上，否则不选
+                if ($('.j_cbox:checked').length === $('.j_cbox').length) {
+                    $('#j_cbAll').prop('checked', true);
+                }
+                else {
+                    $('#j_cbAll').prop('checked', false);
+                }
+                //console.log($('.j_cbox:checked'));返回被选中的个数
+            })
+
+        })
+    </script>
+
+</body>
+
+</html>

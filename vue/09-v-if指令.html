@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 根据表达式的真假，切换元素的显示和隐藏（操作dom元素） 真时存在于dom树，反之移除
+       频繁切换用v-show,反之用v-if，前者切换消耗小 -->
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="点击切换" @click="toggleIsShow">
+        <p v-if="isShow">样式</p>
+        <p v-show="isShow">样式 v-show</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            },
+            methods: {
+                toggleIsShow: function () {
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

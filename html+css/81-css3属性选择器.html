@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[placeholder] {
+            color: blue;
+        }
+
+        input[type=password] {
+            color: blueviolet;
+        }
+
+        div[class^=icon] {
+            color: crimson;
+        }
+
+        section[class$=data] {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 利用属性选择器可以不借助类或id选择器 -->
+    <!-- <input type="text" value="请输入">
+    <input type="text"> -->
+    <!-- 可以选择属性=值得某些元素   务必掌握 -->
+    <input type="text" placeholder="请输入">
+    <input type="password">
+    <!-- 可以选择属性值开头的某些元素 -->
+    <div class="icon1">样式</div>
+    <div class="icon2">样式</div>
+    <div class="else">样式</div>
+    <!-- 可以选择属性值结尾的某些元素 -->
+    <section class="icon3-data">样式</section>
+    <section class="icon3-data">样式</section>
+    <section class="icon4-else">样式</section>
+    <!-- *选择任意有该属性值得某些元素 -->
+</body>
+
+</html>

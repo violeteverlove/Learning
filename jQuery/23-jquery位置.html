@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .fa {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: violet;
+            margin: 100px auto;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fa">
+        <div class="son"></div>
+    </div>
+    <script>
+        $(function () {
+            //1.获取距离文档的位置（偏移）offset 与父元素无关
+            console.log($('.son').offset());
+            console.log($('.son').offset().top);//获取top值
+            $('.son').offset(   //设置位置（距离文档的） position不可以
+                {
+                    top: 200,
+                    left: 200
+                }
+            )
+            //获取距离父亲的位置（偏移）position 父亲无定位则以文档为主
+            console.log($('.son').position());//只能获取 不能设置
+        })
+    </script>
+
+</body>
+
+</html>

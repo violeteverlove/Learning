@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transform:translate(-50%,-50%)实现水平垂直居中 */
+        /* translate()函数是css3的新特性.在不知道自身宽高的情况下，可以利用它来进行水平垂直居中.。
+
+        当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+
+         translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。 */
+
+
+        /* 模态框的制作 */
+        .box {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 100;
+
+        }
+
+
+        .login {
+            width: 512px;
+            height: 280px;
+            padding: 10px;
+            background: green;
+            color: #fff;
+            position: absolute;
+            border-radius: 5px;
+            z-index: 120;
+            top: 50%;
+            left: 50%;
+            /* //translate参数里面为% 移动距离是自身的宽度和高度对比的 */
+            /* 往上走自己高度的一遍，往左走自己宽度的一半 */
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="login"></div>
+
+
+</body>
+
+</html>

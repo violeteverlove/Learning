@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            margin-left: 100px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father"></div>
+    <script>
+        //offset(偏移量)
+        //获取元素距离带有定位父元素的位置
+        //获取元素自身的大小
+        //返回值不带单位
+        var div = document.querySelector('.father');
+        console.log(div.offsetLeft);
+       // HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于  HTMLElement.//offsetParent 节点的左边界偏移的像素值。
+        console.log(div.offsetTop);//没有bottom  和right
+        console.log(div.offsetWidth);//包含border padding width
+        console.log(div.offsetHeight);//包含border padding height
+    </script>
+
+</body>
+
+</html>

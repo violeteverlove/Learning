@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="begin">开启</button>
+    <button class="end">结束</button>
+    <script>
+        var begin = document.querySelector('.begin');
+        var end = document.querySelector('.end');
+        var time = null;//全局变量 对象最好赋值为空 防止出错
+        begin.addEventListener('click', function () {
+            //声明在里面是局部变量外部访问不了
+            time = setInterval(function () {
+                console.log('开始计时');
+            }, 1000)
+        })
+        end.addEventListener('click', function () {
+            clearInterval(time);
+        })
+    </script>
+</body>
+
+</html>

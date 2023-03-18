@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        var btns = document.querySelectorAll('div');
+        //传统删除事件
+        btns[0].onclick = function () {
+            alert(22);
+            this.onclick = 'null';
+        }
+        //监听删除事件
+        btns[1].addEventListener('click', fn)//解绑不能在采用内部写函数了
+        function fn() {
+            alert(22);
+            this.removeEventListener('click', fn);
+        }
+
+    </script>
+
+</body>
+
+</html>

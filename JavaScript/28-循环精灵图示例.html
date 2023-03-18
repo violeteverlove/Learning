@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        .box li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            background-color: pink;
+            margin: 15px;
+            background: url() no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        //条件 精灵图图片排列必须有规律 例如 纵向 横向
+        //思路 利用for循环 修改背景图片的位置
+        //例如索引号*某个数值 就是每个图片的坐标
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            var index = i * 44;
+            //带进来的变量用'+变量+''
+            lis[i].style.backgroundPosition = '0 -' + index + 'px';
+        }
+           //改变类名修改样式法 但会覆盖原先的类名
+           //想要保留原先类名 直接多类名 .className='原先的 新的类名'
+           //.className='类名'
+           //属性写在css中即可 减少代码重复率
+    </script>
+
+</body>
+
+</html>

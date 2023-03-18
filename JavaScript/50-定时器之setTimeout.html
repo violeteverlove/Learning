@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //window.setTimeout(调用函数，[延迟的毫秒数])
+        //定时器到期后执行调用函数 window可以省略
+        //调用函数可以写在里面，也可以写函数名 
+        //页面中有多个定时器，可以用标识符进行区别
+        // setTimeout(function () {
+        //     alert('过了两秒')
+        // }, 2000);
+
+        function callback() {
+            alert('过了两秒');
+        }
+        var time1 = setTimeout(callback, 2000);
+    </script>
+
+</body>
+
+</html>

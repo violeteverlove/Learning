@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 需要一个50*50像素（css像素）直接放到手机里面会被放大例如（变成100*100）
+    这时图片就会模糊
+    可以采取放例如（100*100）图片，然后手动缩小为50*50 
+     准备的图片比我们实际需要的大小要大-->
+    <!-- 背景缩放 <background-size> -->
+    <style>
+        div {
+            width: 480px;
+            height: 480px;
+            border: violet 1px solid;
+            /* 960*960 */
+            background-image: url(./image/image.jpg);
+            background-size: 480px 480px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

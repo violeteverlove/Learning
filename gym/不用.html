@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/gym.css">
+</head>
+
+<body>
+    <script>
+        // 1.选项卡。点击某一个，当前文字底色会变，其余不变（排他思想） 修改类名的方式
+        //获取元素
+        var item = document.querySelector('.item');//父亲
+        var lis = item.querySelectorAll('li')//获取所有小li
+        //for循环绑定点击事件
+        for (var i = 0; i < lis.length; i++) {
+            // 所有小i进行绑定事件
+            lis[i].onclick = function () {
+                //干掉所有人 其余的li清除class这个类
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                // 留下我自己
+                this.className = 'current';
+
+            }
+        }
+    </script>
+    <div class="header"></div>
+    <div class="item">
+        <ul>
+            <li class="current">赛事管理</li>
+            <li>添加赛事</li>
+            <li>删除赛事</li>
+            <li>查询赛事</li>
+            <li>预约赛事</li>
+
+        </ul>
+
+    </div>
+    <div class="item-right">
+        <div class="item-content"></div>
+        <div class="item-content"></div>
+        <div class="item-content"></div>
+        <div class="item-content"></div>
+    </div>
+
+
+</body>
+
+</html>

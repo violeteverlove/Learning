@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //js对象分为3种：自定义对象、内置对象、浏览器对象(js独有的)
+        //查阅MDN文档
+        //https://developer.mozilla.org/zh-CN/
+        console.log(Math.max(1, 33, 2));
+        //数字对象，日期对象，数组对象，字符串对象
+        //数组对象不是构造函数  不需要new
+
+
+        //Date（） 日期对象 是一个构造函数，必须使用new来创建我们的日期对象
+        var arr = new Array();//创建数组对象
+        var obj = new Object();//创建了一个对象实例
+        //使用Date
+        //没有参数 返回当前系统的当前时间
+        var date = new Date();
+        console.log(date);
+        //参数常用写法 数字型: 2021,3,21  或字符串型 '2021-3-21 8:8:8'
+        //常用字符串型
+        var dat = new Date('2021-3-21');
+        console.log(dat);
+        var year = date.getFullYear();
+        console.log(year);
+        var mon = date.getMonth() + 1;//获得月份小一个月 +1
+        console.log(mon);
+        //获取当前星期几
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var day = date.getDay();
+        console.log(arr[day]);
+
+        //格式化时分秒
+        function getTime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTime());
+        //获取距1970到至今的总毫秒数
+        //h5 新增
+        console.log(Date.now());
+        var date1 = +new Date();//返回总的毫秒数
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

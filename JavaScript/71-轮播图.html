@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .promo {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: darkorchid;
+            /* 设置隐藏 */
+            overflow: hidden;
+
+        }
+
+        .promo img {
+            width: 800px;
+            height: 500px;
+        }
+
+        /* 设置ul足够宽 */
+        .promo ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 500%;
+        }
+
+        .promo ul li {
+            float: left;
+        }
+
+        .promo .prev {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -15px;
+            /* 带有绝对或固定的元素可以设置高度 宽度 */
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .promo .next {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+            /* 带有绝对或固定的元素可以设置高度 宽度 */
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .promo .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -55px;
+            width: 110px;
+            height: 20px;
+            /* background-color: pink; */
+            /* background-color: rgba(255, 255, 255, .3); */
+            /* 高度一半 圆角矩形 */
+            border-radius: 15px;
+        }
+
+        .promo-nav li {
+            list-style: none;
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 3px;
+            cursor: pointer;
+
+        }
+
+        .promo-nav .current {
+            background-color: orangered;
+        }
+    </style>
+    <!-- 因为focus.js依赖animate.js 所以要写到其上面 -->
+    <!-- 使用动画函数的元素需要有定位 -->
+    <script src="js/animate.js"></script>
+    <script src="js/focus71.js"></script>
+</head>
+
+<body>
+    <div class="promo">
+        <!-- 核心区域 -->
+        <ul>
+            <li><img src="../html+css/image/image3.jpg" alt=""></li>
+            <li><img src="../html+css/image/image6.jpg" alt=""></li>
+            <li><img src="../html+css/image/image7.jpg" alt=""></li>
+            <li><img src="../html+css/image/image8.jpg" alt=""></li>
+        </ul>
+        <!-- 左侧按钮 -->
+        <a href="javascript:;" class="prev">&lt;</a>
+        <!-- 右侧按钮 -->
+        <a href="javascript:;" class="next">&gt;</a>
+        <!-- 小圆点 -->
+        <ol class="promo-nav">
+
+        </ol>
+
+    </div>
+
+
+
+
+</body>
+
+</html>

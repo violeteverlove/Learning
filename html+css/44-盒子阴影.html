@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* box-shadow: h-shadow v-shadow 允许负值 blur模糊距离 spread模糊尺寸 color
+        inset内部阴影/outset外部阴影 */
+        /* 默认outset 写出outset没有效果 */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+
+        }
+
+        /* 伪类选择器 */
+        div:hover {
+            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .3);
+            /* 过渡时间 */
+            transition: 0.2s;
+
+        }
+
+        /* 文字阴影 h-shadow v-shadow blur color */
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+</body>
+
+</html>

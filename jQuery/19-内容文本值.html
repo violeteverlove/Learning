@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <!-- 普通元素内容html() 
+    相当于原生innerHTML-->
+</head>
+
+<body>
+    <div>
+        <span>123</span>
+    </div>
+    <input type="text" value="请输入内容">
+    <script>
+        //1.获取元素内容 html()
+        console.log($('div').html());
+        //2.修改元素内容html(内容)
+        $('div').html('456');
+        //获取元素文本内容text()
+        console.log($('div').text());
+        //修改元素文本内容text(内容)
+        console.log($('div').text('789'));
+        //获取设置表单值 val()
+        console.log($('input').val());
+        console.log($('input').val('修改内容'));
+
+    </script>
+
+</body>
+
+</html>

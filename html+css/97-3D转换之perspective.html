@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 透视越小，眼睛看屏幕成像越大
+            近大远小 */
+            perspective: 300px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+            transform: translate3d(400px, 100px, 100px)
+                /* z轴正值越大，看到的物体越大 */
+        }
+
+        /* 透视卸载被观察元素的父盒子上面 */
+    </style>
+</head>
+
+<body>
+
+</body>
+<div></div>
+
+</html>

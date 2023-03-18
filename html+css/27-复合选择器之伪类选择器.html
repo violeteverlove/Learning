@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 伪类选择器最大的特点是用冒号：表示 。例如 ：hover ：first-child -->
+    <!-- 链接伪类选择器 -->
+    <!-- 按LVSH顺序写法 -->
+
+    <style>
+        /* 未访问过的链接 a:link */
+        a:link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 访问过的链接 */
+        a:visited {
+            color: deeppink;
+        }
+
+        /* 鼠标悬浮在链接上 */
+        /* 经常用 */
+        a:hover {
+            color: skyblue;
+        }
+
+        /* 按下链接未松开状态 */
+        a:active {
+            color: chartreuse;
+        }
+
+        /* :focus伪类选择器 通常用于input标签 */
+        /* 把获得光标的input表单元素选取出来 */
+        input:focus {
+            background-color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="#">样式</a>
+
+    <input type="text">
+    <input type="text">
+    <input type="text">
+
+</body>
+
+</html>

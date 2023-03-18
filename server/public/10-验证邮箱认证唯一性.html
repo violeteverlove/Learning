@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/ajax.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .register {
+            width: 400px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        input {
+            width: 250px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+
+        #info {
+            font-size: 15px;
+            color: red;
+        }
+
+        /* .bg-success {
+            font-size: 15px;
+            color: green;
+
+
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input type="email" placeholder="请输入邮箱" id="email">
+        <!-- 错误bg-danger 正确bg-success -->
+        <p id="info"></p>
+    </div>
+    <script>
+        var emailInp = document.querySelector('#email');
+        var info = document.querySelector('#info');
+
+        emailInp.addEventListener('blur', function () {
+            var email = this.value;
+            //验证邮箱地址的正则表达式
+            var reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+            if (!reg.test(email)) {
+                info.innerHTML = '请输入符合规则的邮箱地址';
+                info.className = 'bg-danger';
+                //阻止程序向下执行
+                return;
+            }
+            //向服务器端发送请求 
+            // 服务器端开发人员会给与相关文档保存相关信息（接口文档）
+
+            ajax({
+                type: 'get',
+                url: 'http://localhost:3000/address',
+                data: {
+                    email: email
+                },
+                //result是后端人员完成验证后返回客户端的对象结果
+                success: function (result) {
+                    info.innerHTML = result.name;
+                    info.style.color = 'green';
+                },
+                error: function (result) {
+                    info.innerHTML = result.name;
+                    info.className = 'bg-danger';
+                }
+            });
+        })
+
+    </script>
+
+
+</body>
+
+</html>

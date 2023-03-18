@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /* 绝对定位 */
+    /* 参照父元素来定位的 */ -->
+    <!-- 1.无父元素或祖先元素无定位，则以浏览器为准定位（document文档） -->
+    <!-- 2.父元素有定位（绝对 相对 固定），以最近一级的有定位的祖先元素为参考点 -->
+    <!-- 3.绝对定位不占有原来的位置（脱标） -->
+    <!-- 子绝父相 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            position: relative;
+            /* 父元素加定位 子元素才会以它为准来定位 */
+            height: 500px;
+            width: 500px;
+            background-color: purple;
+        }
+
+        .son1 {
+            position: absolute;
+            /* 距离左边10像素 */
+            /* left: 10px; */
+            /* 右边为基准 距离右边100像素 */
+            right: 100px;
+            top: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .son2 {
+            position: absolute;
+            /* 距离左边10像素 */
+            /* left: 10px; */
+            /* 右边为基准 距离右边100像素 */
+            right: 100px;
+            top: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="son1"></div>
+    <div class="father">
+        <div class="son2"></div>
+    </div>
+
+</body>
+
+</html>

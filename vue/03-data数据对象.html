@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <h2>{{school.name}}{{school.age}}</h2>
+        <ul>
+            <li>{{arrays[0]}}</li>
+            <li>{{arrays[1]}}</li>
+            <li>{{arrays[2]}}</li>
+        </ul>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- data的两种写法
+                 (1)对象式
+                 (2)函数式
+                 学到组件的时候，data必须使用函数式，否则会报错
+
+                 由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了-->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue!',
+                school: {
+                    name: '张三',
+                    age: '40'
+                },
+                arrays: ['广东', '广西', '上海']
+            }
+        })
+    </script>
+</body>
+
+</html>

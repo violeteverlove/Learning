@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 已失效 -->
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cantainer">
+        <table cellspacing="0" id="box">
+            <tr>
+                <th>时间</th>
+                <th>温度</th>
+                <th>天气</th>
+                <th>风向</th>
+                <th>风力</th>
+            </tr>
+        </table>
+    </div>
+    <script src="js/jsonp.js"></script>
+    <script src="js/template-web.js"></script>
+    <script type="text/html" id="tpl">
+        {{each info}}
+               <tr>
+                   <td>{dateFormat({$value.update_time})}</td>
+                   <td>{{$value.degree}}</td>
+                   <td>{{$value.weather}}</td>
+                   <td>{{$value.wind_direction}}</td>
+                   <td>{{$value.wind_power}}</td>
+               </tr>
+        {{/each}}
+    </script>
+    <script>
+        var box = document.querySelector('#box')
+        function dateFormat(date) {
+            var year = date.substr(0, 4);
+            var month = date.substr(4, 2);
+            var day = date.substr(6, 2);
+            var hour = date.substr(8, 2);
+            var minute = date.substr(10, 2);
+            var second = date.substr(12, 2);
+            return year + '年' + month + '月' + day + '日' +
+                hour + '时' + minute + '分' + second + '秒';
+
+        }
+        //向模板中开放外部变量 
+        //template.default.imports（固定写法）.属性名(自定义)=函数名(自定义)
+        template.default.imports.dateFormat = dateFormat;
+        jsonp({
+            url: 'https://wis.qq.con/weather/common',
+            data: {
+                source: 'pc',
+                weather_type: 'forecast_1h',//未来48小时
+                // weather_type:'forecast_1h|forecast_24h'
+                province: '广东省',
+                city: '惠州市'
+            },
+            success: function () {
+                console.log(data);
+                var html = template('tpl', { info: data.data.forecast_1h });
+                box.innerHTML = html;
+            }
+        })
+    </script>
+
+</body>
+
+</html>

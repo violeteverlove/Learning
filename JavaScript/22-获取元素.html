@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="time">2222</div>
+    <ul id="fa">
+        <li></li>
+        <li></li>
+        <li>3</li>
+    </ul>
+    <div class="box">黑子</div>
+    <div class="box">白子</div>
+    <script>
+        //根据ID获取  getElementById()  参数字符串 返回一个对象
+        var times = document.getElementById('time');
+        console.log(times);
+        console.log(typeof times);
+        //console.dir 打印返回元素对象，更好查看里面属性和方法
+        console.dir(times);
+        //根据标签名获取   以伪数组存储返回该标签对象集合
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        // console.log(lis[2]);
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+        //获取父元素内部所有指定标签的子元素
+        var ol = document.getElementById('fa');
+        console.log(ol.getElementsByTagName('li'));
+        //通过h5新增方法获取  通过类名获取
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+        //id#    类.
+        var boxss = document.querySelector('.box');//只选择第一个元素对象
+        console.log(boxss);
+        var allbox = document.querySelectorAll('.box');
+
+        //特殊元素获取
+        //body元素
+        var bodyele = document.body;
+        //html元素
+        var htmlele = document.documentElement;
+    </script>
+
+</body>
+
+</html>

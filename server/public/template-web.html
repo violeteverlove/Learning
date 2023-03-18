@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>模板引擎的使用</h3>
+</body>
+</html>
+<!-- 模板 -->
+<!-- 引入模板引擎js -->
+<script src="js/template-web.js"></script>
+
+<!-- 制作模板 -->
+<script type="text/html" id="template">
+    <ul>
+        <li>姓名{{name}}</li>
+        <li>年龄{{age}}</li>
+        <li>电话{{phone}}</li>
+        <button class="btn btn-primary btn-xs" onclick="onUpdate(this)" type="button">按钮</button>
+    </ul>
+</script>
+
+<script>
+    // 获取数据
+    var data = {
+        name:"Ray",
+        age:"18",
+        phone:"18233989613"
+    };
+    
+    // 将数据放入模板中
+    var res = template("template", data);
+    console.log(res);
+
+    // 将模板放入页面中
+    document.body.innerHTML = res;
+    
+
+</script>

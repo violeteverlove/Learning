@@ -1,0 +1,25 @@
+   /* 只写样式 */
+
+   div {
+       /* color: royalblue; */
+       /* color:#ff0000; */
+       color: rgb(0, 255, 255);
+       text-align: center;
+       /* 文本装饰 */
+       /* text-decoration:underline; */
+   }
+
+   a {
+       /* 取消下划线 */
+       text-decoration: none;
+   }
+
+   /* 首行缩进当前元素两个文字大小 */
+
+   /* 行间距=上间距+文本高度+下间距*/
+
+   p {
+       font-size: 16px;
+       text-indent: 2em;
+       line-height: 26px;
+   }

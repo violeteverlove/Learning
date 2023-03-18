@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<button>传统</button>
+<button>方法监听</button>
+<script>
+    //给元素添加事件 称为注册事件或者绑定事件
+    //有两种方式：传统方式和方法监听注册方式
+    //传统方式具有唯一性，后面的会覆盖前面的事件
+    //监听注册方式 addEventListener()  IE9之前的ie不支持，可用attachEvent（）代替
+    //同一元素同一事件可用注册多个监听器 
+    //按注册事件一次执行
+    var btns = document.querySelectorAll('button');
+    btns[0].onclick = function () {
+        alert('传统');
+    }
+    btns[0].onclick = function () {
+        alert('监听');
+    }
+    //事件监听注册事件  事件类型为字符串，而且不带on
+    btns[1].addEventListener('click', function () {
+        alert(22);
+    })
+    btns[1].addEventListener('click', function () {
+        alert(333);
+    })
+</script>
+
+</html>

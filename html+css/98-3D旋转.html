@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 300px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: violet;
+            transition: all 1s;
+            /* 左手准则：正值为正方向 */
+        }
+
+        div:hover {
+            /* transform: rotateX(360deg); */
+            /* y轴向下为正 */
+            /* transform: rotateY(360deg); */
+            /* transform: rotateZ(360deg); */
+            /* 相当于2d旋转 */
+            /* 矢量相加 了解 */
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择ul里的第一个孩子 */
+        ul li:first-child {
+            background-color: cyan;
+        }
+
+        /* ul 里的最后一个孩子 */
+        ul li:last-child {
+            background-color: violet;
+        }
+
+        /* nth-child(n)选择父元素的一个或多个特定的子元素 */
+        /* n可以是数字，关键字，公式
+        n如果是数字，则从第n个子元素开始 */
+        ul li:nth-child(2) {
+            background-color: yellow;
+        }
+
+        /* 偶数孩子 */
+        ul li:nth-child(even) {
+            font-size: 25px;
+        }
+
+        /* 奇数孩子 */
+        ul li:nth-child(odd) {
+            font-size: 35px;
+        }
+
+        /* nth-child(n)从0开始每次自加1往后面计算 里面必须是n */
+        ol li:nth-child(n) {
+            background-color: violet;
+        }
+
+        /* 从第二个孩子开始到最后 包含第二个 */
+        ol li:nth-child(n+2) {
+            font-size: 25px;
+        }
+
+        /* 从第二个孩子开始 前两个孩子包含第二个 */
+        ol li:nth-child(-n+2) {
+            font-size: 15px;
+        }
+
+        section div:nth-child(3) {
+            background-color: violet;
+        }
+
+        section div:nth-of-type(3) {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第一</li>
+        <li>我是第二</li>
+        <li>我是第三</li>
+        <li>我是第四</li>
+        <li>我是第五</li>
+    </ul>
+    <ol>
+        <li>我是第一</li>
+        <li>我是第二</li>
+        <li>我是第三</li>
+        <li>我是第四</li>
+        <li>我是第五</li>
+    </ol>
+    <!-- nth-child 与<nth-of-type>的区别 -->
+    <!-- nth-child把所有孩子排序 -->
+    <!-- 而nth-of-type把指定的孩子排序 -->
+    <section>
+        <div>2</div>
+        <p>1</p>
+        <div>2</div>
+        <div>3</div>
+    </section>
+
+</body>
+
+</html>

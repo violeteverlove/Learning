@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        //隐式迭代是对同一类元素做同样的操作
+        // 想要给同一类元素做不同操作 就需要遍历
+        $(function () {
+            var sum = 0;
+            var arr = ['red', 'green', 'violet']
+            $('div').each(function (index, domEle) {
+                // 回调函数第一个参数地硬是索引号，可以自己知道索引号名称
+                console.log(index);
+                //第二个元素一定是dom元素对象 需要转换为jq对象
+                console.log(domEle);
+                $(domEle).css('color', arr[index]);
+                console.log(sum += parseInt($(domEle).text()));
+
+                //2$.each() 遍历元素 主要用于遍历数据 处理数据
+
+                // $.each($('div'), function (i, ele) {
+                //     console.log(i);
+                //     console.log(ele);
+                $.each(arr, function (i, ele) {
+                    console.log(i);
+                    console.log(ele);
+                })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

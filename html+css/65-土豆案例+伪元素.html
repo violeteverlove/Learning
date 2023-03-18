@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 鼠标经过显示遮罩 -->
+    <!-- 运用绝对定位和display -->
+    <style>
+        .box {
+            position: relative;
+            width: 444px;
+            height: 444px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 100%;
+        }
+
+        .box::before {
+            content: '';
+            /* 隐藏遮罩层 */
+            position: absolute;
+            display: none;
+            width: 444px;
+            height: 444px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        /* 鼠标经过box */
+        .box:hover::before {
+            display: block;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="box">
+        <img src="image/image.jpg" alt="">
+    </div>
+    <div class="box">
+        <img src="image/image.jpg" alt="">
+    </div>
+    <div class="box">
+        <img src="image/image.jpg" alt="">
+    </div>
+    <div class="box">
+        <img src="image/image.jpg" alt="">
+    </div>
+
+
+
+</body>
+
+</html>

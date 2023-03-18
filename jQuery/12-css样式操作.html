@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+
+        .current {
+            background-color: tomato;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        //操作样式css方法
+        $(function () {
+            console.log($('.box').css('width'));//只写属性名，返回属性值
+            $('.box').css('width', '300px');//单个属性修改，属性名必须加引号
+            // $('div').css('width', 300);
+            $('.box').css({
+                width: '400px',
+                height: '400px',
+                backgroundColor: 'red' //复合属性不用引号采取驼峰命名法,值不是数据需要加引号
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 为元素绑定事件 -->
+</head>
+
+<body>
+    <div id="app" >
+        <input type="button" name="v-on" value="v-on" v-on:click="doIt">
+        <input type="button" name="@click" value="v-on简写" @click="doIt">
+        <h2 @click="changeName">{{name}}</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: '张三',
+            },
+            methods: {
+                doIt: function () {
+                    alert('点击成功')
+                },
+                changeName: function () {
+                    console.log(this.name);
+                    this.name = '李四'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

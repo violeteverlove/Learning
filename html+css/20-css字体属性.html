@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 30px;
+        }
+
+        /* 标题标签比较特殊，需要指定文字大小 */
+        h3 {
+            font-size: 35px;
+
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .xiti {
+            font-weight: 200;
+        }
+
+        .bold {
+            /* 调整字体粗细 开发中使用数字调整 400为normal 700为加粗*/
+            font-weight: 700;
+        }
+
+        /* 复合属性，样式 粗细 字体大小 字体种类 */
+        /* 可以只写粗细和字体大小 必须按顺序必填 全部属性有效才会有效 */
+        .fuhe {
+            /* 字体种类出错 */
+            font: 900 '微软雅黑';
+        }
+    </style>
+</head>
+
+<body>
+    <h3>字体样式</h3>
+    <p class="xiti">字体样式</p>
+    <p class="bold">字体样式</p>
+    <p class="fuhe">字体样式</p>
+    <p>字体样式</p>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="demo.php" method="POST" name="name1"> </form>-->
+    <form>
+        <!-- maxlength规定输入的最大字符 -->
+        <!--label标签的for属性应当与相关控件元素的id属性相同-->
+        <label for="text">用户名：</label><input type="text" id="text" name="username" placeholder="请输入用户名"
+            maxlength="6"><br>
+        <label for="password">密码：</label><input type="password" id="password" name="pwd" placeholder="请输入密码"><br>
+        <!-- 单选按钮 -->
+        <!-- 相同名字name 才能实现多选一 -->
+        <!-- 单选按钮和复选框可以使用checked属性 默认选上 -->
+        性别：<label for="sex">男</label><input type="radio" name="sex" id="sex" value="男" checked="checked">
+        <label for="sex2">女</label><input type="radio" name="sex" id="sex2" value="女"><br>
+
+        籍贯
+        <select>
+            <option selected="selected">广东</option>
+            <option>北京</option>
+            <option>山东</option>
+
+        </select>
+        <!-- 复选框 -->
+        爱好： <label for="eat">吃饭</label><input type="checkbox" id="eat">
+        <label for="sleep">睡觉</label><input type="checkbox" id="sleep">
+        <label for="play">游戏</label><input type="checkbox" id="play">
+
+        <!--value里的值为按钮名字-->
+        <input type="submit" value="注册">
+
+        <input type="reset" value="重新编写"><br>
+
+        <!--上传文件-->
+        上传头像：<input type="file"><br>
+
+        <textarea>文本域 属性后面用css设置</textarea>
+        <input list="one">
+        <datalist id="one">
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+        </datalist>
+        <!-- 返回上一页 -->
+        <input type="button" value="返回" onclick="history.go(-1)">
+
+
+
+    </form>
+
+</body>
+
+</html>

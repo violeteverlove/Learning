@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/ajax.js"></script>
+    <script src="js/template-web.js"></script>
+    <!-- 事件暂时没有数据 只学习如何使用art-template模板 -->
+    <!-- 1.通过接口获取省份信息
+         2.使用js获取下拉框元素
+         3.将服务器端返回的省份信息显示在下拉框中
+         4.为下拉框元素添加表单值改变事件(onchange)
+         5.用户选择省份时，根据省份id获取城市信息
+         6.用户选择城市时，根据城市id获取县城信息 -->
+    <style>
+        .container {
+            padding-top: 150px;
+        }
+
+        .form-group {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-inline">
+            <div class="form-group">
+                <select name="" id="province" class="form-control">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="" id="city" class="form-control">
+                    <option value="">请选择城市</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="" id="area" class="form-control">
+                    <option value="">请选择县城</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- 省份模板 -->
+    <script type="text/html" id="provinceTp">
+    <option >请选择省份</option>
+        {{each province}}
+        <option  value="{{$value.id}}">{{$value.name}}</option>
+        {{/each}}
+    </option>
+</script>
+    <!-- 城市模板 -->
+    <script type="text/html" id="cityTp">
+    <option >请选择省份</option>
+        {{each city}}
+        <option  value="{{$value.id}}">{{$value.name}}</option>
+        {{/each}}
+    </option>
+</script>
+    <!-- 县城模板 -->
+    <script type="text/html" id="areaTp">
+    <option >请选择省份</option>
+        {{each area}}
+        <option  value="{{$value.id}}">{{$value.name}}</option>
+        {{/each}}
+    </option>
+</script>
+    <script>
+        var province = document.querySelector('#province');
+        var city = document.querySelector('#city');
+        var area = document.querySelector('#area');
+        //获取省份信息
+        ajax({
+            type: 'get',
+            url: 'http://localhost:3000/province',
+            success: function (data) {
+                // console.log(data);
+                var html = template('provinceTp', { province: data })
+                province.innerHTML = html;
+            }
+        })
+
+        //为省份下拉框添加改变事件
+        province.addEventListener('change', function () {
+            //获取省份id
+            var pid = this.value;
+            //清空县城下拉框的数据
+            var html = template('areaTp', { area: [] })
+            area.innerHTML = html;
+            ajax({
+                type: 'get',
+                url: 'http://localhost:3000/cities',
+                data: {
+                    id: pid
+                },
+                success: function (data) {
+                    var html = template('cityeTp', { city: data })
+                    city.innerHTML = html;
+                }
+            })
+        })
+        //为城市下拉框添加改变事件
+        city.addEventListener('change', function () {
+            //获取省份id
+            var cid = this.value;
+            ajax({
+                type: 'get',
+                url: 'http://localhost:3000/areas',
+                data: {
+                    id: cid
+                },
+                success: function (data) {
+                    var html = template('areaTp', { area: data })
+                    area.innerHTML = html;
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

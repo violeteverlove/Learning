@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            height: 4500px;
+        }
+
+        .header {
+            width: 1500px;
+            height: 300px;
+            background-color: cornflowerblue;
+            margin: 0 auto;
+        }
+
+        .banner {
+            width: 1500px;
+            height: 800px;
+            background-color: cadetblue;
+            margin: 10px auto;
+        }
+
+        .banner2 {
+            width: 1500px;
+            height: 800px;
+            background-color: violet;
+            margin: 10px auto;
+        }
+
+        .banner3 {
+            width: 1500px;
+            height: 800px;
+            background-color: skyblue;
+            margin: 10px auto;
+        }
+
+        .slide {
+            display: none;
+            position: fixed;
+            top: 300px;
+            right: 100px;
+            width: 100px;
+            background-color: pink;
+        }
+
+        ul li {
+            text-align: center;
+            width: 100px;
+            height: 25px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: tomato;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="slide">
+        <ul>
+            <li>内容模块</li>
+            <li>内容模块</li>
+            <li>内容模块</li>
+            <li>内容模块</li>
+
+        </ul>
+
+    </div>
+    <div class="header"></div>
+    <div class="floor">
+        <div class="banner">banner1</div>
+        <div class="banner2">banner2</div>
+        <div class="banner3">banner3</div>
+        <div class="banner3">banner4</div>
+    </div>
+
+    <script>
+        var flag = true;//节流阀
+
+        var boxTop = $('.banner').offset().top;
+        mytool();
+        function mytool() {
+            if ($(document).scrollTop() >= boxTop) {
+                $('.slide').fadeIn();
+            }
+            else {
+                $('.slide').fadeOut();
+            }
+        }
+
+        //被卷去的头部 scrlooTop()
+        //页面滚动事件
+        $(window).scroll(function () {
+            // console.log($(document).scrollTop());
+            mytool();
+            //页面滚动到摸个内容区域，导航小li相应添加和删除current
+            //遍历内容盒子拿到索引号和元素的属性
+            if (flag == true) {
+                $('.floor div').each(function (i, ele) {
+                    if ($(document).scrollTop() >= $(ele).offset().top) {
+                        // console.log(i);
+                        $('li').eq(i).addClass('current').siblings().removeClass('current');
+                    }
+                })
+            }
+
+        })
+        $('li').click(function () {
+            flag = false;
+            // $(document).scrollTop(0);
+            // 是元素做动画 所以对象是body，html
+            // 动画函数里有个属性scrollTop
+            // 点击小li去到对应的内容区域
+            console.log($(this).index);
+            //计算每个内容盒子的offset值
+            var divtop = $('.floor div').eq($(this).index()).offset().top
+            $('body,html').stop().animate({
+                scrollTop: divtop
+            }, function () {
+                flag = true;
+            })
+            //清除类
+            $(this).addClass('current').siblings().removeClass('current');
+
+        })
+
+    </script>
+</body>
+
+</html>

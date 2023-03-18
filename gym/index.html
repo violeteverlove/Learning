@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台模板管理系统</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="logo">海大体育馆后台管理系统</div>
+        <div class="navigation">
+            <ul>
+                <li>欢迎您！<i th:text="${username}" style="color: #fb4505;text-decoration: none"></i></li>
+                <li></li>
+                <li><a href="/userCenter">个人中心</a></li>
+                <li><a href="/doLogout">退出登录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="left_menu">
+            <ul id="nav_dot">
+                <li>
+                    <h4 class="M1" onclick="match()"><span></span>赛事管理</h4>
+                    <div class="list-item none" style="height: 0px"></div>
+                </li>
+                <li>
+                    <h4 class="M2" onclick="user()"><span></span>人员管理</h4>
+                    <div class="list-item none" style="height: 0px"></div>
+                </li>
+                <li>
+                    <h4 class="M3" onclick="equipment()"><span></span>器材管理</h4>
+                    <div class="list-item none" style="height: 0px"></div>
+                </li>
+                <li>
+                    <h4 class="M4" onclick="place()"><span></span>场地管理</h4>
+                    <div class="list-item none" style="height: 0px"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="m-right">
+            <div class="right-nav">
+                <ul>
+                    <li><img src="images/home.png"></li>
+                    <li style="margin-left:25px;">您当前的位置：</li>
+                    <li><a href="#">系统公告</a></li>
+                    <li></li>
+                    <li><a href="#">最新公告</a></li>
+                </ul>
+            </div>
+            <div class="main" style="text-align: center">
+                <!--			主体部分-->
+                <div class="fa" style="overflow: hidden;">
+                    <div class="one">
+                        <form class="main-left" action="/select" method="post">
+                            <span>价格:</span>
+                            <select value="价格" name="price" style="margin-left: 10px;margin-right: 20px;">
+                                <option value="1">0~10</option>
+                                <option value="2">10~50</option>
+                                <option value="3">50以上</option>
+                            </select>
+                            <span>状态:</span>
+                            <select value="状态" name="state" style="margin-left: 10px;">
+                                <option value="1">空余</option>
+                                <option value="2">在租</option>
+                            </select>
+                            <input type="submit" value="筛选"
+                                style="cursor: pointer; border-radius: 8px; margin-left: 10px;" />
+
+                        </form>
+                    </div>
+                    <div class="two">
+                        <form class="main-right">
+
+                            <input type="text" placeholder="请输入" style="width: 200px;">
+                            <input type="submit" value="搜索"
+                                style="cursor: pointer; border-radius: 8px; margin-left: 10px;">
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="head-item">
+                    <ul>
+                        <li>名称</li>
+                        <li>租用价格</li>
+                        <li>状态</li>
+                        <li>描述</li>
+                        <li>操作</li>
+                    </ul>
+                    <ul id="con">
+                        <li>名称</li>
+                        <li>租用价格</li>
+                        <li>状态</li>
+                        <li>描述</li>
+                        <li>
+                            <a href="#">修改</a>
+                            <a href="#">删除</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <a href="#" class="prev">&lt;&lt;上一页</a>
+                    <a href="#" class="current">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#" class="elp">...</a>
+                    <a href="#" class="next">&gt;&gt;下一页</a>
+                    到第
+                    <input type="text">
+                    页
+                    <input class="st" type="submit" value="确定">
+                </div>
+            </div>
+            <script>
+                navList(12); function match() { }; function equipment() { }; function user() { }; function place() { }
+            </script>
+</body>
+
+</html>

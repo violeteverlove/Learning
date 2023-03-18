@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            background-color: violet;
+        }
+
+        .box ul {
+            margin-left: 50%;
+        }
+
+        .box ul li {
+            float: left;
+            width: 70px;
+            cursor: pointer;
+            background-color: thistle;
+        }
+
+        .item {
+            position: absolute;
+            display: none;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            height: 150px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 显示隐藏：show() hide() toggle() -->
+    <!-- 滑动： slideDown() slideUp() slideToggle()
+     淡入淡出： fadeIn() fadeOut() fadeToggle() fadeTo()
+    自定义动画:animate() -->
+    <div class="box">
+        <div class="item">第一个内容</div>
+        <div class="item">第二个内容</div>
+        <div class="item">第三个内容</div>
+        <ul>
+            <li>第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+        </ul>
+    </div>
+    <script>
+
+        // $(function () {
+        //     $('.box li').mouseover(function () {
+        //         var index = $(this).index();
+        //         $('.item').eq(index).slideDown(300);
+        //     })
+        //     $('.box li').mouseout(function () {
+        //         var index = $(this).index();
+        //         $('.item').eq(index).slideUp(300);
+        //     })
+        // })
+
+        // //事件切换hover  鼠标经过 离开的复合结果
+        // $('.box li').hover(function () {
+        //     var index = $(this).index();
+        //     $('.item').eq(index).slideDown(300);
+        // }, function () {
+        //     var index = $(this).index();
+        //     $('.item').eq(index).slideUp(300);
+        // })
+
+
+        //如果只写一个函数，鼠标经过，离开都会触发这个函数
+        $('.box li').hover(function () {
+            var index = $(this).index();
+            //stop()停止上一次动画或事件的效果
+            //必须写在动画或时间的前面
+            $('.item').eq(index).stop().slideToggle(300);
+        })
+
+    </script>
+</body>
+
+</html>

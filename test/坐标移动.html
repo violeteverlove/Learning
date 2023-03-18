@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let a = "A10;S20;W10;D30;X;A1A;B10A11;;A10;"
+        const strs = a.split(';');
+        // console.log(strs);
+        let x = 0
+        let y = 0
+        for (let i = 0; i < strs.length; i++) {
+            let str = strs[i]
+            // console.log(str, '++++');
+            let num = Number(str.substr(1))//str.substr(1)返回从第二个字符包括这个之后的字符，保证后面都为数字
+            console.log(num);
+            //!isNaN(Number("1A"))==false
+            if (str.length <= 3 && str.length > 1 && !isNaN(num)) {
+                if (str[0] === 'A') {
+                    x -= num
+                } else if (str[0] === 'D') {
+                    x += num
+                } else if (str[0] === 'W') {
+                    y += num
+                } else if (str[0] === 'S') {
+                    y -= num
+                }
+            }
+        }
+        // console.log(x + ',' + y)
+    </script>
+</body>
+
+</html>

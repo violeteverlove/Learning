@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+}
+
+.nav {
+    width: 100%;
+    height: 800px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.item {
+    /* display: inline-block; */
+    float: left;
+    width: 10%;
+    height: 800px;
+    background-color: rgb(165, 150, 150);
+}
+
+.item ul>li {
+    border-bottom: 1px solid;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+.item ul>li:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+ul .current {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.item-content {
+    float: left;
+    /* display: inline-block; */
+    width: 90%;
+    height: 800px;
+    background-color: purple;
+}
+
+.item-content .content {
+    height: 800px;
+    background-color: rgb(218, 229, 233);
+}
+
+.content-head {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid black;
+}
+
+.content-head .one li {
+    float: left;
+    margin-left: 130px;
+}
+
+.content-head .one li input {
+    height: 20px;
+    border-radius: 5px;
+}
+
+/* .content-head .button {
+    float: right;
+    margin-right: 130px;
+    width: 150px;
+    height: 60px;
+} */
+
+/* 
+.content-head button {
+    float: right;
+    margin-right: 130px;
+    border-radius: 10px;
+    border: 1px solid black;
+} */
+
+table {
+    width: 95%;
+    margin: 50px 40px 0 50px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td, th {
+    border: 1px solid #333;
+}
+
+thead tr {
+    height: 40px;
+    background-color: #ccc;
+}
+
+.box {
+    position: absolute;
+    left: 28%;
+    bottom: 60px;
+    /* 行内和行内块元素居中 */
+    text-align: center;
+    height: 36px;
+}
+
+.box a {
+    display: inline-block;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 36px;
+    color: #333;
+    font-size: 14px;
+}
+
+.box .prev, .box .next {
+    width: 85px;
+}
+
+.box .current, .box .elp {
+    background-color: white;
+    border: 0;
+}
+
+.box input {
+    width: 45px;
+    height: 36px;
+    border: 1px solid #ccc;
+}
+
+.box .button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ccc;
+}

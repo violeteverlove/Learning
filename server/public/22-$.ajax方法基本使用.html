@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">发送请求</button>
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        var params = { name: 'zhangsan', age: 40 }
+        $('#btn').click(function () {
+            $.ajax({
+                type: 'post',
+                //域名协议 端口相同的 可以省略不写，浏览器会自动补上
+                url: 'http://localhost:3000/data',
+                // data: {
+                //     //会内部转换成该字符串name=zhangsan&age=40
+                //     name: 'zhangsan',
+                //     age: 40
+                // },
+                data: JSON.stringify(params),//JSON字符串自己设置，不然会内部转换为普通字符串
+                //指定类型参数
+                contentType: 'application/json',
+                //在发送请求前调用 用于发送请求前做验证 错误则 return false
+                beforeSend: function () {
+                    alert('发送请求前');
+                    // return false;
+                },
+                success: function (response) {
+                    //方法内部会自动将json字符串转换为json对象
+                    console.log(response);
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            })
+        })
+
+        
+    </script>
+
+</body>
+
+</html>

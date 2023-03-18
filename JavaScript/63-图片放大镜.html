@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .box {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: blueviolet;
+            text-align: center;
+            border: 1px solid black;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        .box>img {
+            width: 100%;
+
+        }
+
+        .large img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 800px;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, .5);
+            border: 1px solid #ccc;
+            /* opacity: .5;透明度 */
+            cursor: move;
+        }
+
+        .large {
+            display: none;
+            position: absolute;
+            left: 510px;
+            top: 0;
+            width: 600px;
+            height: 570px;
+            background-color: sandybrown;
+            border: 1px solid black;
+            overflow: hidden;
+            z-index: 999;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../html+css/image/image.jpg" alt="">
+        <div class="mask"></div>
+        <div class="large">
+            <img src="../html+css/image/image.jpg" alt="" class="bigImg">
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            var box = document.querySelector('.box');
+            var mask = document.querySelector('.mask');
+            var large = document.querySelector('.large');
+            // var mask = box.children[1];
+            // var large = box.children[2];
+            // console.log(mask, large);
+            //鼠标经过 显示遮挡层和大盒子
+            box.addEventListener('mousemove', function () {
+                mask.style.display = 'block';
+                large.style.display = 'block';
+            })
+            box.addEventListener('mouseout', function () {
+                mask.style.display = 'none';
+                large.style.display = 'none';
+            })
+            //盒子跟随鼠标移动
+            //鼠标在盒子内的坐标
+            box.addEventListener('mousemove', function (e) {
+                var x = e.pageX - this.offsetLeft;
+                var y = e.pageY - this.offsetTop;
+                // console.log(x, y);
+                //减去盒子一半宽高 让鼠标垂直水平居中 mask.offsetWidth/2
+                //遮挡层移动距离
+                var maskX = x - mask.offsetWidth / 2;
+                var maskY = y - mask.offsetHeight / 2;
+                // console.log(maskX);
+                //限制遮罩层活动范围
+                //遮挡层最大移动距离
+                var maskMax = box.offsetWidth - mask.offsetWidth;
+                if (maskX <= 0) {
+                    maskX = 0;
+                } else if (maskX >= maskMax) {
+                    maskX = maskMax;
+                }
+                if (maskY <= 0) {
+                    maskY = 0;
+                } else if (maskY >= maskMax) {
+                    maskY = maskMax;
+                }
+                mask.style.left = maskX + 'px';//不要忘记加px
+                mask.style.top = maskY + 'px';
+
+                //大图片的移动距离 = 遮挡层移动距离 * 大图片最大移动距离 / 遮挡层的最大移动距离
+                var bigImg = document.querySelector('.bigImg');
+                // 大图片最大移动距离
+                var bigMax = bigImg.offsetWidth - large.offsetWidth;
+
+                //大图片移动距离
+                var bigX = maskX * bigMax / maskMax;
+                var bigY = maskY * bigMax / maskMax;
+                //相反方向移动 负值
+                bigImg.style.left = -bigX + 'px';
+                bigImg.style.top = -bigY + 'px';
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .promo {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: darkorchid;
+            /* 设置隐藏 */
+            overflow: hidden;
+
+        }
+
+        .promo img {
+            width: 800px;
+            height: 500px;
+        }
+
+        .promo .prev {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -15px;
+            /* 带有绝对或固定的元素可以设置高度 宽度 */
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .promo .next {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+            /* 带有绝对或固定的元素可以设置高度 宽度 */
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="promo" id="app">
+        <!-- 核心区域 -->
+        <img :src="imgArr[index]" alt="">
+        <!-- 左侧按钮  索引号不等于0就显示出来-->
+        <a href="javascript:;" class="prev" @click="prev" v-show="index!=0">&lt;</a>
+        <!-- 右侧按钮 -->
+        <a href="javascript:;" class="next" @click="next" v-show="index<imgArr.length-1">&gt;</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgArr: ['../html+css/image/image3.jpg',
+                    '../html+css/image/image6.jpg',
+                    '../html+css/image/image7.jpg',
+                    '../html+css/image/image8.jpg'],
+                index: 0,
+            },
+            methods: {
+                prev: function () {
+                    this.index--;
+                },
+                next: function () {
+                    this.index++;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
